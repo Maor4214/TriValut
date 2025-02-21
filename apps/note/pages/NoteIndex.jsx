@@ -5,6 +5,7 @@ import { NoteSideBar } from "../cmps/NoteSideBar.jsx"
 import { CreateNote } from "../cmps/CreateNote.jsx"
 import { NoteList } from "../cmps/NoteList.jsx"
 import { noteService } from "../services/note.service.js"
+import { NoteProvider } from "../context/NoteContext.jsx"
 
 const {useEffect, useState} = React
 const {useSearchParams} = ReactRouterDOM
@@ -20,7 +21,7 @@ export function NoteIndex() {
     useEffect(()=>{
         setSearchParams(filterBy)
         loadNotes()
-    },[filterBy,notes])
+    },[filterBy])
 
     function loadNotes(){
         noteService.query(filterBy)
@@ -37,11 +38,13 @@ export function NoteIndex() {
             loadNotes()
         })
     }
-    return <section className="container">
-
-        <NoteHeader></NoteHeader>
-        {/* <NoteSideBar></NoteSideBar> */}
-        <CreateNote loadNotes={loadNotes}></CreateNote>
-        <NoteList notes={notes} onRemoveNote={onRemoveNote}></NoteList>
-        </section>
+    return (
+        <NoteProvider loadNotes={loadNotes}> 
+            <section className="container">
+                <NoteHeader />
+                <CreateNote loadNotes={loadNotes} />
+                <NoteList notes={notes} onRemoveNote={onRemoveNote} />
+            </section>
+        </NoteProvider>
+    )
 }

@@ -11,8 +11,7 @@ export function CreateNote({loadNotes}) {
     useEffect(()=>{
         if (noteId) loadNote()
     },[])
-
-    function loadNote(){
+     function loadNote(){
         noteService.get(noteId)
         .then(note => setNoteToEdit(note))
         .catch(err => console.log('err:', err))

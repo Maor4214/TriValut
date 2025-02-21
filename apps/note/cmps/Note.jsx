@@ -4,16 +4,15 @@ const {useEffect, useState} = React
 const {useRef} = React
 import { CreateNote } from "./CreateNote.jsx"
 import { noteService } from "../services/note.service.js"
+import { useNotes } from "../context/NoteContext.jsx";
+
 export function Note() {
 
     const { noteId} = useParams()
     const dialogRef = useRef()
     const navigate = useNavigate()
-
-     function loadNotes(){
-       navigate('/notes')   
-        
-    }
+    const { loadNotes } = useNotes();
+    
 
     useEffect(()=>{
         document.body.classList.add('dialog-open')
