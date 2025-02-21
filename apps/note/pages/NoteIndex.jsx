@@ -20,7 +20,7 @@ export function NoteIndex() {
     useEffect(()=>{
         setSearchParams(filterBy)
         loadNotes()
-    },[filterBy])
+    },[filterBy,notes])
 
     function loadNotes(){
         noteService.query(filterBy)

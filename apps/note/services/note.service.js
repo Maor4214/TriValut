@@ -108,13 +108,13 @@ function _createNotes() {
     let Notes = utilService.loadFromStorage(Note_KEY)
     if (!Notes || !Notes.length) {
         Notes = []
-        Notes.push(_createNote('noteTxt',false,{backgroundColor:'#00d'},{txt:'Fullstack Me Baby!'}))
-        Notes.push(_createNote('noteTxt',false,{backgroundColor:'#01d'},{txt:'differnet note!'}))
+        Notes.push(_createNote('noteTxt',false,{backgroundColor:'#00d'},{txt:'Fullstack Me Baby!', title: 'Fullstack'}))
+        Notes.push(_createNote('noteTxt',false,{backgroundColor:'#01d'},{txt:'differnet note!', title: 'differnet'}))
         utilService.saveToStorage(Note_KEY, Notes)
     }
 }
 
-function _createNote(type, isPinned = false, style={}, info={}, todos=[]) {
+function _createNote(type, isPinned = false, style={}, info={title: '', txt: ''}, todos=[]) {
     const Note = {
         id: utilService.makeId(),
         createdAt: Date.now(),

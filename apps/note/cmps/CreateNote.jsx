@@ -7,7 +7,7 @@ export function CreateNote({loadNotes}) {
 
     const [noteToEdit, setNoteToEdit] = useState(noteService.getEmptyNote())
     const {noteId} = useParams()
-
+    const navigate = useNavigate()
     useEffect(()=>{
         if (noteId) loadNote()
     },[])
@@ -24,6 +24,7 @@ function onSaveNote(ev) {
             .then(() => {
                 showSuccessMsg(`note saved successfully!`)
                 loadNotes()
+                navigate('/notes')
             })
             .catch(err => console.log('err:', err))
     }
@@ -58,7 +59,7 @@ function onSaveNote(ev) {
             <input onChange={handleChange} id="txt" name="txt" type="text" value={info.txt} />
             <label htmlFor="txt">Content</label>
 
-            <button>Create Note</button>
+            <button> {noteId ? 'Edit' : 'Create'} Note</button>
             </form>
     </div>
 }

@@ -2,17 +2,18 @@
 const { useParams, useNavigate } = ReactRouterDOM
 const {useEffect, useState} = React
 const {useRef} = React
-
-
+import { CreateNote } from "./CreateNote.jsx"
+import { noteService } from "../services/note.service.js"
 export function Note() {
-
-
-
 
     const { noteId} = useParams()
     const dialogRef = useRef()
     const navigate = useNavigate()
 
+     function loadNotes(){
+       navigate('/notes')   
+        
+    }
 
     useEffect(()=>{
         document.body.classList.add('dialog-open')
@@ -25,11 +26,11 @@ export function Note() {
 
 
      function onClickOutside(ev){
-        ev.preventDefault()
+
          ev.stopPropagation()
-        console.log('clicked outside')
+        console.log(ev.target)
        
-        if (!ev.target.classList.contains('note-dialog')){
+        if (!dialogRef.current.contains(ev.target)){
             navigate('/notes')
         }
      }
@@ -40,6 +41,7 @@ export function Note() {
     className="note-dialog"
      ref={dialogRef}
       open>
+        <CreateNote loadNotes={loadNotes}></CreateNote>
         Note {noteId}
         </dialog>
 }
