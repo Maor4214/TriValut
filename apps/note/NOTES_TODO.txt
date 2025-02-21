@@ -1,0 +1,51 @@
+Base structure:
+
+crudl:
+create - check 
+read - will be fused with edit/update
+update - 
+delete - check 
+
+
+App structure:
+
+side bar:
+- notes
+- reminders
+- labels
+- archive
+- trash
+
+main:
+- notes 
+- create note cmp
+- filter cmp
+
+
+
+features: 
+- background color for notes
+- on hover note - show actions
+- support pin notes 
+- duplicate note 
+- different type of notes:
+    - text
+    - image
+    - video
+    - todo list
+    
+
+- support labels 
+
+- send note to email
+
+
+
+optional bonus features:
+more note types:
+- map 
+- audio 
+- canvas
+
+more bonus features:
+- allow audio recording note

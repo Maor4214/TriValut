@@ -1,8 +1,8 @@
 
-export function NotePreview({note}) {
+export function NotePreview({note,onNoteClick}) {
     const {id,createdAt,type,isPinned,style,info,todos} = note
 
-    return <section className="note-preview">
+    return <section className="note-preview" onClick={()=>onNoteClick(id)}>
         <h2>{info.txt}</h2>
 
     </section>

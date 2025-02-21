@@ -21,3 +21,18 @@ img {
     width: 100%;
     object-fit: cover;
 }
+
+
+/* Disable interactions on background notes when dialog is open */
+.dialog-open .note-preview {
+    pointer-events: none;
+}
+
+/* Allow interactions inside the dialog */
+.note-dialog {
+    pointer-events: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 1001;
+}
