@@ -1,5 +1,6 @@
 import { noteService } from '../services/note.service.js'
 import { showSuccessMsg } from '../../../services/event-bus.service.js'
+import { DynamicForm } from './DyanmicForm.jsx'
 const { useNavigate, useParams } = ReactRouterDOM
 const { useEffect, useState } = React
 
@@ -56,27 +57,10 @@ export function CreateNote({ loadNotes }) {
   }
   const { type, info } = noteToEdit
   return (
-    <div>
-      <form onSubmit={onSaveNote}>
-        <input
-          onChange={handleChange}
-          id="title"
-          name="title"
-          type="text"
-          value={info.title}
-        />
-        <label htmlFor="title">Title</label>
-        <input
-          onChange={handleChange}
-          id="txt"
-          name="txt"
-          type="text"
-          value={info.txt}
-        />
-        <label htmlFor="txt">Content</label>
-
-        <button> {noteId === 'newnote' ? 'Create' : 'Edit'} Note</button>
-      </form>
-    </div>
+    <DynamicForm
+      noteToEdit={noteToEdit}
+      onSaveNote={onSaveNote}
+      handleChange={handleChange}
+    ></DynamicForm>
   )
 }

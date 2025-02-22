@@ -110,8 +110,11 @@ function _createNotes() {
         'noteImg',
         false,
         { backgroundColor: '#01d' },
-        { url: 'https://picsum.photos/200/300', title: 'Image note demo' },
-        { txt: 'differnet note!', title: 'differnet' }
+        {
+          url: 'https://picsum.photos/200/300',
+          title: 'Image note demo',
+          txt: 'image text demo',
+        }
       )
     )
     Notes.push(
@@ -122,6 +125,7 @@ function _createNotes() {
         {
           url: './assets/videos/video-demo.mp4',
           title: 'video note demo',
+          txt: 'video demo text',
         }
       )
     )
@@ -137,6 +141,7 @@ function _createNotes() {
             { txt: 'Driving license', doneAt: null },
             { txt: 'Coding power', doneAt: 187111111 },
           ],
+          txt: 'todos demo text',
         }
       )
     )
