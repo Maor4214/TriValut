@@ -4,19 +4,32 @@ export function NoteSideBar() {
   return (
     <section className="note-sidebar">
       <button>
-        <Link to="/notes">Notes</Link>
-      </button>
-      <button>
-        <Link to="/notes/memos">Memos</Link>
-      </button>
-
-      <button>Edit labels</button>
-      <button>
-        <Link to="/notes/archive">Archive</Link>
+        <NavLink to="/notes" end>
+          <i className="fa-solid fa-lightbulb"></i>Notes
+        </NavLink>
       </button>
 
       <button>
-        <Link to="/notes/trash">Trash</Link>
+        <NavLink to="/notes/memos">
+          <i className="fa-solid fa-bell"></i>
+          Memos
+        </NavLink>
+      </button>
+
+      <button>
+        <i className="fa-solid fa-pencil"></i>Edit labels
+      </button>
+
+      <button>
+        <NavLink to="/notes/archive">
+          <i className="fa-solid fa-box-archive"></i> Archive
+        </NavLink>
+      </button>
+
+      <button>
+        <NavLink to="/notes/trash">
+          <i className="fa-solid fa-trash"></i>Trash
+        </NavLink>
       </button>
     </section>
   )
