@@ -3,6 +3,7 @@ import { NoteHeader } from '../cmps/NoteHeader.jsx'
 import { NoteSideBar } from '../cmps/NoteSideBar.jsx'
 import { CreateNote } from '../cmps/CreateNote.jsx'
 import { NoteList } from '../cmps/NoteList.jsx'
+import { AddNewNote } from '../cmps/AddNewNote.jsx'
 import { noteService } from '../services/note.service.js'
 import { NoteProvider } from '../context/NoteContext.jsx'
 import { DynamicNoteContent } from '../cmps/DynamicNoteContent.jsx'
@@ -42,7 +43,8 @@ export function NoteIndex() {
       <section className="notes-container">
         <NoteHeader />
         <NoteSideBar />
-        <CreateNote loadNotes={loadNotes} />
+        <AddNewNote />
+        {/* <CreateNote loadNotes={loadNotes} /> */}
         <DynamicNoteContent notes={notes} onRemoveNote={onRemoveNote} />
       </section>
     </NoteProvider>

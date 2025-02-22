@@ -8,7 +8,7 @@ export function CreateNote({ loadNotes }) {
   const { noteId } = useParams()
   const navigate = useNavigate()
   useEffect(() => {
-    if (noteId) loadNote()
+    if (noteId && noteId !== 'newnote') loadNote()
   }, [])
   function loadNote() {
     noteService
@@ -75,7 +75,7 @@ export function CreateNote({ loadNotes }) {
         />
         <label htmlFor="txt">Content</label>
 
-        <button> {noteId ? 'Edit' : 'Create'} Note</button>
+        <button> {noteId === 'newnote' ? 'Create' : 'Edit'} Note</button>
       </form>
     </div>
   )

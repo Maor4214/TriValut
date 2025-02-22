@@ -1,1 +1,17 @@
- /* note index */
+.notes-container {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+}
+
+.note-sidebar {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.2rem;
+}
+
+.note-list {
+  grid-column: 2;
+}
