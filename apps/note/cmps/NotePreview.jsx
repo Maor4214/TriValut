@@ -3,9 +3,27 @@ export function NotePreview({note,onNoteClick}) {
     const {id,createdAt,type,isPinned,style,info,todos} = note
 
     return <section className="note-preview" onClick={()=>onNoteClick(id)}>
-        <h2>{info.txt}</h2>
-
+        <DynamicNote type={type} info={info}></DynamicNote>
     </section>
+}
+
+function DynamicNote({type, info}){
+    switch (type) {
+        case 'noteTxt':
+            return <div>Text note {info.txt}</div>
+            break;
+        case 'image':
+            return <div>Image note</div>
+
+            break;
+        case 'video':
+            return <div>Video note</div>
+
+            break;
+        default:
+            return <div>no such type note</div>
+            break;
+    }
 }
 
 
