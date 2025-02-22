@@ -1,39 +1,40 @@
-import {TodoNote} from "./TodoNote.jsx"
-import {TextNote} from "./TextNote.jsx"
-import {VideoNote} from "./VideoNote.jsx"
-import {ImageNote} from "./ImageNote.jsx"
+import { TodoNote } from './TodoNote.jsx'
+import { TextNote } from './TextNote.jsx'
+import { VideoNote } from './VideoNote.jsx'
+import { ImageNote } from './ImageNote.jsx'
 
+export function NotePreview({ note, onNoteClick }) {
+  const { id, createdAt, type, isPinned, style, info, todos } = note
 
-
-export function NotePreview({note,onNoteClick}) {
-    const {id,createdAt,type,isPinned,style,info,todos} = note
-
-    return <section className="note-preview" onClick={()=>onNoteClick(id)}>
-        <DynamicNote type={type} info={info}></DynamicNote>
+  return (
+    <section className="note-preview" onClick={() => onNoteClick(id)}>
+      <DynamicNote type={type} info={info}></DynamicNote>
     </section>
+  )
 }
 
-function DynamicNote({type, info}){
-    switch (type) {
-        case 'noteTxt':
-           return <TextNote info={info}></TextNote>
-            break;
-        case 'noteImage':
-            return <ImageNote info={info}></ImageNote>
+function DynamicNote({ type, info }) {
+  switch (type) {
+    case 'noteTxt':
+      return <TextNote info={info}></TextNote>
+      break
+    case 'noteImg':
+      return <ImageNote info={info}></ImageNote>
 
-            break;
-        case 'noteVideo':
-            return <div>Video note</div>
+      break
+    case 'noteVideo':
+      return <VideoNote info={info}></VideoNote>
 
-            break;
-        default:
-            return <div>no such type note</div>
-            break;
-    }
+      break
+    case 'noteTodos':
+      return <TodoNote info={info}></TodoNote>
+    default:
+      return <div>no such type note</div>
+      break
+  }
 }
 
-
-// const notes = [ { 
+// const notes = [ {
 //   id: 'n101',
 //   createdAt: 1112222,
 //   type: 'NoteTxt' ,
@@ -47,4 +48,3 @@ function DynamicNote({type, info}){
 //   ],
 //   label: 'important'
 // }]
-
