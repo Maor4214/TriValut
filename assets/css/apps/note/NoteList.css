@@ -1,3 +1,30 @@
- /* note list */
+/* note list */
 
- 
+.note-list {
+  columns: 4;
+}
+.note-list {
+  columns: 4; /* Default: 4 columns on wide screens */
+  column-gap: 16px; /* Adjust spacing between columns */
+}
+
+/* Reduce to 3 columns on medium screens */
+@media (max-width: 1200px) {
+  .note-list {
+    columns: 3;
+  }
+}
+
+/* Reduce to 2 columns on smaller screens */
+@media (max-width: 900px) {
+  .note-list {
+    columns: 2;
+  }
+}
+
+/* Reduce to 1 column on mobile */
+@media (max-width: 600px) {
+  .note-list {
+    columns: 1;
+  }
+}
