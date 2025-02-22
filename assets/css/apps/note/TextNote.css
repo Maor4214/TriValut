@@ -1,0 +1,35 @@
+/* Google Keep-like Note Card */
+.text-note {
+  width: 250px; /* Responsive width */
+  min-height: 80px;
+  padding: 12px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.2s ease-in-out, transform 0.1s ease-in-out;
+  cursor: pointer;
+  word-wrap: break-word;
+  display: flex;
+  align-items: center;
+}
+
+/* Hover Effect */
+.text-note:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Text Content */
+.text-note-content {
+  font-size: 16px;
+  color: #333;
+  white-space: pre-wrap;
+  flex-grow: 1;
+}
+
+/* Responsive Layout */
+@media (max-width: 900px) {
+  .text-note {
+    width: 100%; /* Full width for small screens */
+  }
+}
