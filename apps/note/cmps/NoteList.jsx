@@ -6,7 +6,7 @@ export function NoteList({ notes, onRemoveNote }) {
   const navigate = useNavigate()
 
   function onNoteClick(noteId) {
-    navigate(`/notes/${noteId}`)
+    navigate(`/notes/note/${noteId}`)
   }
 
   if (!notes) return <div>Loading...</div>
