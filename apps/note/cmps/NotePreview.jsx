@@ -1,3 +1,9 @@
+import {TodoNote} from "./TodoNote.jsx"
+import {TextNote} from "./TextNote.jsx"
+import {VideoNote} from "./VideoNote.jsx"
+import {ImageNote} from "./ImageNote.jsx"
+
+
 
 export function NotePreview({note,onNoteClick}) {
     const {id,createdAt,type,isPinned,style,info,todos} = note
@@ -10,13 +16,13 @@ export function NotePreview({note,onNoteClick}) {
 function DynamicNote({type, info}){
     switch (type) {
         case 'noteTxt':
-            return <div>Text note {info.txt}</div>
+           return <TextNote info={info}></TextNote>
             break;
-        case 'image':
-            return <div>Image note</div>
+        case 'noteImage':
+            return <ImageNote info={info}></ImageNote>
 
             break;
-        case 'video':
+        case 'noteVideo':
             return <div>Video note</div>
 
             break;

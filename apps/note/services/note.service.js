@@ -73,15 +73,16 @@ function save(Note) {
 //   ]
 // }]
 
-function getEmptyNote(type = 'noteTxt',info = {title: '',txt: ''}) {
-    return {createdAt: Date.now(),
+function getEmptyNote(type = 'noteTxt', info = { title: '', txt: '' }) {
+    return {
+        createdAt: Date.now(),
         info,
-         isPinned : false,
-         style: { backgroundColor: '#00d' },
-         todos: [],
+        isPinned: false,
+        style: { backgroundColor: '#00d' },
+        todos: [],
         type,
 
-        }
+    }
 }
 
 function getDefaultFilter() {
@@ -108,13 +109,13 @@ function _createNotes() {
     let Notes = utilService.loadFromStorage(Note_KEY)
     if (!Notes || !Notes.length) {
         Notes = []
-        Notes.push(_createNote('noteTxt',false,{backgroundColor:'#00d'},{txt:'Fullstack Me Baby!', title: 'Fullstack'}))
-        Notes.push(_createNote('noteTxt',false,{backgroundColor:'#01d'},{txt:'differnet note!', title: 'differnet'}))
+        Notes.push(_createNote('noteTxt', false, { backgroundColor: '#00d' }, { txt: 'Fullstack Me Baby!', title: 'Fullstack' }))
+        Notes.push(_createNote('noteTxt', false, { backgroundColor: '#01d' }, { txt: 'differnet note!', title: 'differnet' }))
         utilService.saveToStorage(Note_KEY, Notes)
     }
 }
 
-function _createNote(type, isPinned = false, style={}, info={title: '', txt: ''}, todos=[]) {
+function _createNote(type, isPinned = false, style = {}, info = { title: '', txt: '' }, todos = []) {
     const Note = {
         id: utilService.makeId(),
         createdAt: Date.now(),
@@ -194,3 +195,7 @@ function _setNextPrevNoteId(Note) {
             return Note
         })
 }
+
+
+
+
