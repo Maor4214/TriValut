@@ -2,14 +2,14 @@ const { Link, NavLink } = ReactRouterDOM
 export function NoteSideBar() {
   return (
     <section className="note-sidebar">
-      <div className="burger-container">
+      {/* <div className="burger-container">
         <label className="burger" htmlFor="burger">
           <input type="checkbox" id="burger" />
           <span></span>
           <span></span>
           <span></span>
         </label>
-      </div>
+      </div> */}
 
       <button>
         <NavLink to="/notes" end>

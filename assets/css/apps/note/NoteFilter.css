@@ -1,0 +1,22 @@
+.note-filter-form {
+  button {
+    border: none;
+    background: none;
+  }
+  input {
+    border: none;
+    background: none;
+  }
+  display: flex;
+  height: 45px;
+  align-items: center;
+  background-color: var(--keep-filter-bg);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  flex-grow: 1;
+  max-width: 720px;
+}
+
+.note-clear-btn {
+  margin-left: auto;
+}

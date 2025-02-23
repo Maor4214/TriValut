@@ -4,9 +4,10 @@ export function DynamicForm({ noteToEdit, onSaveNote, handleChange }) {
   const { style } = noteToEdit
   console.log('noteId:', id)
   return (
+    //const [formState,setFormState] = useState({startconfugartion1,...})
     <div>
       <form onSubmit={onSaveNote}>
-        {noteToEdit.type === 'noteTodos' && <div>video note form</div>}
+        {/* {noteToEdit.type === 'imageNote' &&  <<div>video note form</div>>} */}
         <input
           onChange={handleChange}
           id="title"

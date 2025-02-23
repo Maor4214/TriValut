@@ -19,15 +19,30 @@ function DynamicNote({ type, info }) {
       return <TextNote info={info}></TextNote>
       break
     case 'noteImg':
-      return <ImageNote info={info}></ImageNote>
+      return (
+        <div>
+          <ImageNote info={info}></ImageNote>
+          <TextNote info={info}></TextNote>
+        </div>
+      )
 
       break
     case 'noteVideo':
-      return <VideoNote info={info}></VideoNote>
+      return (
+        <div>
+          <VideoNote info={info}></VideoNote>
+          <TextNote info={info}></TextNote>
+        </div>
+      )
 
       break
     case 'noteTodos':
-      return <TodoNote info={info}></TodoNote>
+      return (
+        <div>
+          <TodoNote info={info}></TodoNote>
+          <TextNote info={info}></TextNote>
+        </div>
+      )
     default:
       return <div>no such type note</div>
       break

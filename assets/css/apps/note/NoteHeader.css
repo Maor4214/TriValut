@@ -1,14 +1,30 @@
 .notes-header {
-  grid-column: 2;
-  grid-row: 1;
-  justify-self: center;
-  align-self: flex-start;
-
+  padding: 10px;
+  height: 5vh;
+  border: 0.5px solid var(--keep-border);
   display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
   align-items: center;
-  margin-top: 0.7rem;
+  gap: 80px;
+}
+
+.note-filter-container {
+  flex-grow: 1;
+}
+
+.note-header-utils {
+  background-color: red;
+  margin-left: auto;
+}
+.notes-header .keep-logo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.note-header-logos {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .new-notes i {
