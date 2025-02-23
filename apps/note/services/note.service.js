@@ -101,7 +101,7 @@ function _createNotes() {
       _createNote(
         'noteTxt',
         false,
-        { backgroundColor: '#00d' },
+        { backgroundColor: '#0011DD' },
         { txt: 'Fullstack Me Baby!', title: 'Fullstack' }
       )
     )
@@ -109,7 +109,7 @@ function _createNotes() {
       _createNote(
         'noteImg',
         false,
-        { backgroundColor: '#01d' },
+        { backgroundColor: '#0011DD' },
         {
           url: 'https://picsum.photos/200/300',
           title: 'Image note demo',
@@ -121,7 +121,7 @@ function _createNotes() {
       _createNote(
         'noteVideo',
         false,
-        { backgroundColor: '#01d' },
+        { backgroundColor: '#0011DD' },
         {
           url: './assets/videos/video-demo.mp4',
           title: 'video note demo',
@@ -133,7 +133,7 @@ function _createNotes() {
       _createNote(
         'noteTodos',
         false,
-        { backgroundColor: '#01d' },
+        { backgroundColor: '#0011DD' },
 
         {
           title: 'Get my stuff together',
