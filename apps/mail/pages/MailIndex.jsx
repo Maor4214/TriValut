@@ -1,7 +1,9 @@
 import { mailService } from '../services/mail.service.js'
+import { MailHeader } from '../cmps/MailHeader.jsx'
+import { MailSidebar } from '../cmps/MailSidebar.jsx'
 
 const { useEffect, useState } = React
-const { useSearchParams } = ReactRouterDOM
+const { Link, Outlet, useSearchParams, useNavigate } = ReactRouterDOM
 
 export function MailIndex() {
   const [notes, setNotes] = useState(null)
@@ -30,6 +32,10 @@ export function MailIndex() {
   //   }
   return (
     <section className="mail-container">
+      <MailHeader />
+      <MailSidebar />
+      <Outlet />
+
       <div>testing to see maor didnt break anything</div>
     </section>
   )

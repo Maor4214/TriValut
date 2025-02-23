@@ -32,7 +32,7 @@ export function DynamicForm({ noteToEdit, onSaveNote, handleChange }) {
           onChange={handleChange}
         ></input>
 
-        <button> {id === 'newnote' ? 'Create' : 'Edit'} Note</button>
+        <button> {id ? 'Edit' : 'Create'} Note</button>
       </form>
     </div>
   )
