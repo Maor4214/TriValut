@@ -3,40 +3,6 @@
   grid-template-columns: 2fr 5fr;
 }
 
-.note-sidebar {
-  grid-column: 1;
-  grid-row: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  gap: 0.6rem;
-  padding: 6px;
-  font-size: 0.6rem;
-}
-
-.note-sidebar button {
-  all: unset;
-  cursor: pointer;
-  border: 3px solid transparent;
-  transition: all 0.3s ease;
-}
-
-.note-sidebar button > * {
-  padding: 6px;
-}
-
-.note-sidebar .active {
-  box-shadow: 0 0 0 3px rgba(128, 128, 128, 0.265);
-  border-radius: 1rem;
-  background-color: rgba(128, 128, 128, 0.265);
-}
-
 .note-list {
   grid-column: 2;
-}
-
-.note-sidebar button:hover:not(:has(.active)) {
-  border: 3px solid rgba(128, 128, 128, 0.265);
-  border-radius: 1rem;
-  transition: all 0.3s ease;
 }

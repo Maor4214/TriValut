@@ -1,8 +1,16 @@
 const { Link, NavLink } = ReactRouterDOM
-
 export function NoteSideBar() {
   return (
     <section className="note-sidebar">
+      <div className="burger-container">
+        <label className="burger" htmlFor="burger">
+          <input type="checkbox" id="burger" />
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      </div>
+
       <button>
         <NavLink to="/notes" end>
           <i className="fa-solid fa-lightbulb"></i>Notes
@@ -11,8 +19,7 @@ export function NoteSideBar() {
 
       <button>
         <NavLink to="/notes/memos">
-          <i className="fa-solid fa-bell"></i>
-          Memos
+          <i className="fa-solid fa-bell"></i>Memos
         </NavLink>
       </button>
 
@@ -22,7 +29,7 @@ export function NoteSideBar() {
 
       <button>
         <NavLink to="/notes/archive">
-          <i className="fa-solid fa-box-archive"></i> Archive
+          <i className="fa-solid fa-box-archive"></i>Archive
         </NavLink>
       </button>
 
