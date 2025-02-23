@@ -10,6 +10,7 @@ export function CreateNote({ loadNotes }) {
   const navigate = useNavigate()
   useEffect(() => {
     if (noteId && noteId !== 'newnote') loadNote()
+    console.log('note to edit:', noteToEdit)
   }, [])
   function loadNote() {
     noteService
@@ -31,6 +32,8 @@ export function CreateNote({ loadNotes }) {
   }
 
   function handleChange({ target }) {
+    console.log('note to edit:', noteToEdit)
+
     const field = target.name
     let value = target.value
 
@@ -39,13 +42,14 @@ export function CreateNote({ loadNotes }) {
     switch (target.type) {
       case 'number':
       case 'range':
-        value = +value
+        // value = +value
         break
 
       case 'checkbox':
         value = target.checked
         break
-
+      case 'color':
+        value = value
       default:
         break
     }
@@ -53,6 +57,7 @@ export function CreateNote({ loadNotes }) {
     setNoteToEdit((prevNote) => ({
       ...prevNote,
       info: { ...prevNote.info, [field]: value },
+      style: { ...prevNote.style, [field]: value },
     }))
   }
   const { type, info } = noteToEdit

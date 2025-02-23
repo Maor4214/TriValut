@@ -1,6 +1,7 @@
 export function DynamicForm({ noteToEdit, onSaveNote, handleChange }) {
   console.log('note to edit:', noteToEdit)
   const { id } = noteToEdit
+  const { style } = noteToEdit
   console.log('noteId:', id)
   return (
     <div>
@@ -11,7 +12,7 @@ export function DynamicForm({ noteToEdit, onSaveNote, handleChange }) {
           id="title"
           name="title"
           type="text"
-          value={noteToEdit.title ? noteToEdit.title : 'default title'}
+          value={noteToEdit.info.title}
         />
         <label htmlFor="title">Title</label>
         <input
@@ -22,6 +23,14 @@ export function DynamicForm({ noteToEdit, onSaveNote, handleChange }) {
           value={noteToEdit.info.txt}
         />
         <label htmlFor="txt">Content</label>
+
+        <input
+          value={style.backgroundColor}
+          id="backgroundColor"
+          name="backgroundColor"
+          type="color"
+          onChange={handleChange}
+        ></input>
 
         <button> {id === 'newnote' ? 'Create' : 'Edit'} Note</button>
       </form>
