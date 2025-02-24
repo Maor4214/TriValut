@@ -53,7 +53,7 @@ export function NoteIndex() {
           <NoteSideBar isSideBarOpen={isSideBarOpen}></NoteSideBar>
           {/* <CreateNote loadNotes={loadNotes} /> */}
           <div className="content">
-            <AddNewNote></AddNewNote>
+            {/* <AddNewNote></AddNewNote> */}
 
             <DynamicNoteContent notes={notes} onRemoveNote={onRemoveNote} />
           </div>

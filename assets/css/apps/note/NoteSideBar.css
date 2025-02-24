@@ -9,8 +9,8 @@
   width: 280px;
   font-size: 14px;
   svg {
-    height: 24px;
-    width: 24px;
+    /* height: 24px;
+    width: 24px; */
   }
   transition: 50ms ease-in-out;
 }

@@ -3,6 +3,7 @@
 .note-list {
   columns: 4; /* Default: 4 columns on wide screens */
   column-gap: 16px; /* Adjust spacing between columns */
+  padding: 30px;
 }
 
 .note-item {
