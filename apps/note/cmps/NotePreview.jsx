@@ -3,12 +3,13 @@ import { TextNote } from './TextNote.jsx'
 import { VideoNote } from './VideoNote.jsx'
 import { ImageNote } from './ImageNote.jsx'
 
-export function NotePreview({ note, onNoteClick }) {
+export function NotePreview({ note, onNoteClick, onRemoveNote }) {
   const { id, createdAt, type, isPinned, style, info, todos } = note
 
   return (
-    <section className="note-preview" onClick={() => onNoteClick(id)}>
+    <section className="note-item">
       <DynamicNote type={type} info={info}></DynamicNote>
+      <button onClick={() => onRemoveNote(id)}>X</button>
     </section>
   )
 }
