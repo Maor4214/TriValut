@@ -16,6 +16,7 @@ import { MailStarred } from './apps/mail/cmps/MailStarred.jsx'
 import { MailSent } from './apps/mail/cmps/MailSent.jsx'
 import { MailDraft } from './apps/mail/cmps/MailDraft.jsx'
 import { MailTrash } from './apps/mail/cmps/MailTrash.jsx'
+import { MailInfo } from './apps/mail/cmps/MailInfo.jsx'
 
 export function RootCmp() {
   return (
@@ -32,6 +33,7 @@ export function RootCmp() {
             <Route path="/mail/sent" element={<MailSent />} />
             <Route path="/mail/draft" element={<MailDraft />} />
             <Route path="/mail/trash" element={<MailTrash />} />
+            <Route path="/mail/info/:mailId" element={<MailInfo />} />
           </Route>
           <Route path="/notes" element={<NoteIndex />}>
             <Route path="/notes/note/:noteId" element={<Note />} />

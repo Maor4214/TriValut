@@ -1,0 +1,65 @@
+.main-mail-layout {
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.mail-item {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 12px;
+  border-bottom: 1px solid #e0e0e0;
+  transition: background 0.2s ease-in-out;
+}
+
+.mail-item:hover {
+  background: #f5f5f5;
+}
+
+label {
+  margin-right: 12px;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 12px;
+  color: #888;
+  font-size: 16px;
+}
+
+button:hover {
+  color: #ffcc00;
+}
+
+.sent-by {
+  font-weight: bold;
+  color: #333;
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mail-title {
+  flex-grow: 1;
+  font-weight: 500;
+  color: #444;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mail-body {
+  color: #777;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
