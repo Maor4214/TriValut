@@ -1,14 +1,13 @@
 /* note list */
 
 .note-list {
-  /* columns: 4; */
   column-count: auto;
-  column-width: 250px; /* Default: 4 columns on wide screens */
-  column-gap: 15px; /* Adjust spacing between columns */
-  padding: 30px;
+  column-width: 250px;
+  padding: 0 7.5px;
+  margin-top: 130px;
   overflow-y: auto;
+  margin-left: auto;
 }
-
 .note-item {
   break-inside: avoid;
 }
