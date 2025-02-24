@@ -8,8 +8,11 @@ export function NotePreview({ note, onNoteClick, onRemoveNote }) {
 
   return (
     <section className="note-item">
-      <div className="note-title">1</div>
-      <div className="note-txt">1</div>
+      {type === 'noteVideo' && <VideoNote info={info} />}
+      {type === 'noteImg' && <ImageNote info={info} />}
+      <div className="note-title">{info.title}</div>
+      {type !== 'noteTodos' && <div className="note-txt">{info.txt}</div>}
+      {type === 'noteTodos' && <TodoNote info={info} />}
       <div className="note-navbar">
         <button onClick={() => onRemoveNote(id)}>
           <svg
