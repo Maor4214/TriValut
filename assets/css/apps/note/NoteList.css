@@ -1,8 +1,9 @@
 /* note list */
 
 .note-list {
-  columns: 7; /* Default: 4 columns on wide screens */
+  columns: 4; /* Default: 4 columns on wide screens */
   column-gap: 16px; /* Adjust spacing between columns */
+  padding: 30px;
 }
 
 .note-item {

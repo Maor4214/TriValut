@@ -1,5 +1,7 @@
 body {
-    margin: 0;
+  margin: 0;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 15px;
 }
 
 h1,
@@ -8,31 +10,30 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0;
+  margin: 0;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
-
 
 /* Disable interactions on background notes when dialog is open */
 .dialog-open .note-preview {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 /* Allow interactions inside the dialog */
 .note-dialog {
-    pointer-events: auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    z-index: 1001;
+  pointer-events: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 1001;
 }

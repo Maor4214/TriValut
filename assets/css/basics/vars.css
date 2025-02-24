@@ -9,5 +9,39 @@
 
     --gray2: #aaa;
     --gray2: #888;
-    --gray2: #333;
+    --gray2: #33
+    
+
+
+     /* 🎨 Primary Colors */
+    --keep-bg: #fffde7; /* Light yellow background */
+    --keep-filter-bg: #f1f3f4;
+    --keep-header-bg: #f1f3f4; /* Light grayish top bar */
+    --keep-text: #202124; /* Default text color */
+    --keep-secondary-text: #5f6368; /* Muted text */
+    --keep-border: #dadce0; /* Border color */
+    --keep-sidebar-hover: #f2f4f7; /* Border color */
+
+    /* 🖌 Note Colors */
+    --keep-note-white: #ffffff;
+    --keep-note-red: #f28b82;
+    --keep-note-orange: #fbbc04;
+    --keep-note-yellow: #fff475;
+    --keep-note-green: #ccff90;
+    --keep-note-teal: #a7ffeb;
+    --keep-note-blue: #cbf0f8;
+    --keep-note-darkblue: #aecbfa;
+    --keep-note-purple: #d7aefb;
+    --keep-note-pink: #fdcfe8;
+    --keep-note-brown: #e6c9a8;
+    --keep-note-gray: #e8eaed;
+
+    /* ✨ Font Styles */
+    --keep-font-primary: 'Roboto', sans-serif;
+    --keep-font-secondary: 'Noto Sans', sans-serif;
+    --keep-font-size: 16px;
+
+    /* 🔳 Box Shadows (Google Keep Style) */
+    --keep-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    --keep-hover-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }

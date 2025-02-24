@@ -1,96 +1,69 @@
 .note-sidebar {
   grid-column: 1;
-  grid-row: 1/2;
+  /* grid-row: 1/2; */
+  /* padding: 8px; */
+  padding-top: 8px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: start;
-  gap: 0.6rem;
-  padding: 6px;
-  font-size: 0.6rem;
+  width: 280px;
+  font-size: 14px;
+  svg {
+    /* height: 24px;
+    width: 24px; */
+  }
+  transition: 50ms ease-in-out;
+}
+
+.note-sidebar svg {
+  width: 24px; /* Ensure consistent size */
+  height: 24px; /* Ensure consistent size */
+  flex-shrink: 0; /* Prevent shrinking */
 }
 
 .note-sidebar button {
   all: unset;
   cursor: pointer;
-  border: 3px solid transparent;
+  /* border: 3px solid transparent; */
   transition: all 0.3s ease;
+  height: 48px;
+  padding-left: 12px;
+
+  span {
+  }
+}
+
+.note-sidebar-btn {
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
 .note-sidebar button > * {
-  padding: 6px;
+  /* padding: 6px; */
 }
 .note-sidebar .active {
-  box-shadow: 0 0 0 3px rgba(128, 128, 128, 0.265);
-  border-radius: 1rem;
-  background-color: rgba(128, 128, 128, 0.265);
+  box-shadow: 0 0 0 0 rgba(128, 128, 128, 0.265);
+  border-radius: 0 2rem 2rem 0;
+  background-color: rgb(254, 239, 195);
 }
-.note-sidebar button:hover:not(:has(.active)) {
-  border: 3px solid rgba(128, 128, 128, 0.265);
-  border-radius: 1rem;
-  transition: all 0.3s ease;
+.note-sidebar a:hover {
+  /* box-shadow: 0 0 0 0 rgba(128, 128, 128, 0.265);
+  border-radius: 0 2rem 2rem 0;
+  background-color: var(--gray2); */
 }
-
-.burger-container {
-  transform: scale(0.5);
-  display: inline-block;
-}
-
-.burger {
-  position: relative;
-  width: 40px;
-  height: 30px;
-  background: transparent;
-  cursor: pointer;
-  display: block;
+.note-sidebar a {
+  display: block; /* Ensures link covers full button area */
+  /* width: 100%; */
 }
 
-.burger input {
-  display: none;
+.note-sidebar a:hover {
+  background-color: var(--keep-sidebar-hover);
+  border-radius: 0 2rem 2rem 0;
 }
 
-.burger span {
-  display: block;
-  position: absolute;
-  height: 4px;
-  width: 100%;
-  background: black;
-  border-radius: 9px;
-  opacity: 1;
-  left: 0;
-  transform: rotate(0deg);
-  transition: 0.25s ease-in-out;
+.note-sidebar.open {
 }
-
-.burger span:nth-of-type(1) {
-  top: 0px;
-  transform-origin: left center;
-}
-
-.burger span:nth-of-type(2) {
-  top: 50%;
-  transform: translateY(-50%);
-  transform-origin: left center;
-}
-
-.burger span:nth-of-type(3) {
-  top: 100%;
-  transform-origin: left center;
-  transform: translateY(-100%);
-}
-
-.burger input:checked ~ span:nth-of-type(1) {
-  transform: rotate(45deg);
-  top: 0px;
-  left: 5px;
-}
-
-.burger input:checked ~ span:nth-of-type(2) {
-  width: 0%;
-  opacity: 0;
-}
-
-.burger input:checked ~ span:nth-of-type(3) {
-  transform: rotate(-45deg);
-  top: 28px;
-  left: 5px;
+.note-sidebar.close {
+  width: 60px;
 }

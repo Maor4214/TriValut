@@ -1,8 +1,12 @@
 .notes-container {
   display: grid;
-  grid-template-columns: 2fr 5fr;
+  grid-template-columns: auto 1fr;
 }
 
 .note-list {
   grid-column: 2;
+}
+
+.note-app-container {
+  background-color: var(--keep-bg);
 }

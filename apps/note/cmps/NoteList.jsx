@@ -16,14 +16,13 @@ export function NoteList({ notes, onRemoveNote }) {
       {notes &&
         notes.map((note) => {
           return (
-            <div style={note.style} className="note-item" key={note.id}>
-              <NotePreview
-                className="note-preview"
-                note={note}
-                onNoteClick={onNoteClick}
-              />
-              <button onClick={() => onRemoveNote(note.id)}>X</button>
-            </div>
+            <NotePreview
+              style={note.style}
+              key={note.id}
+              note={note}
+              onNoteClick={onNoteClick}
+              onRemoveNote={onRemoveNote}
+            />
           )
         })}
     </section>
