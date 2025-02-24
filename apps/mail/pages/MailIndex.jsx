@@ -8,35 +8,26 @@ const { Link, Outlet, useSearchParams, useNavigate } = ReactRouterDOM
 export function MailIndex() {
   const [notes, setNotes] = useState(null)
 
+  const [isSideBarOpen, setIsSideBarOpen] = useState(false)
+
+  function toggleSideBar() {
+    setIsSideBarOpen((prevIsOpen) => {
+      return !prevIsOpen
+    })
+  }
+
   const [searchParams, setSearchParams] = useSearchParams()
   const [filterBy, setFilterBy] = useState(
     mailService.getFilterFromSearchParams(searchParams)
   )
 
-  //   useEffect(() => {
-  //     setSearchParams(filterBy)
-  //     loadNotes()
-  //   }, [filterBy, notes])
-
-  //   function loadNotes() {
-  //     mailService.query(filterBy).then((notes) => {
-  //       setNotes(notes)
-  //       console.log('notes', notes)
-  //     })
-  //   }
-
-  //   function onRemoveNote(noteId) {
-  //     mailService.remove(noteId).then(() => {
-  //       loadNotes()
-  //     })
-  //   }
   return (
     <section className="mail-container">
-      <MailHeader />
-      <MailSidebar />
-      <Outlet />
-
-      <div>testing to see maor didnt break anything</div>
+      <MailHeader toggleSideBar={toggleSideBar} />
+      <section className="main-layout">
+        <MailSidebar isSideBarOpen={isSideBarOpen} />
+        <Outlet />
+      </section>
     </section>
   )
 }

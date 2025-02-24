@@ -1,3 +1,3 @@
 export function MailStarred() {
-  return 'all the starred mails here'
+  return <div className="main-mail-layout"> all the starred mails here</div>
 }

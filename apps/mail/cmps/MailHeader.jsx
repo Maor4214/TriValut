@@ -1,8 +1,8 @@
-export function MailHeader() {
+export function MailHeader({ toggleSideBar }) {
   return (
     <section className="mail-header">
-      <div>
-        <i className="material-icons">menu</i>
+      <div onClick={toggleSideBar}>
+        <i className="material-icons humburger">menu</i>
         <img
           src="https://1000logos.net/wp-content/uploads/2021/05/Gmail-logo.png"
           alt=""

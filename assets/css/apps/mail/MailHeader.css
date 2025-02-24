@@ -77,3 +77,7 @@
 .mail-header img {
   width: 45px;
 }
+
+.humburger {
+  cursor: pointer;
+}

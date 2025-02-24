@@ -1,3 +1,3 @@
 export function MailInbox() {
-  return 'all mails here but trash'
+  return <div className="main-mail-layout"> all mails here but trash</div>
 }

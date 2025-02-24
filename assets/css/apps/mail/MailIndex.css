@@ -1,1 +1,10 @@
- /* mail index  */
+.main-layout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.main-mail-layout {
+  grid-column: 2;
+
+  justify-self: center;
+}

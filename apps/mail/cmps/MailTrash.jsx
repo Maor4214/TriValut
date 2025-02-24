@@ -1,3 +1,3 @@
 export function MailTrash() {
-  return 'all the trash mail here'
+  return <div className="main-mail-layout">all the trash mail here</div>
 }

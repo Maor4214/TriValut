@@ -1,3 +1,3 @@
 export function MailSent() {
-  return 'all the sent mail here'
+  return <div className="main-mail-layout"> all the sent mail here</div>
 }

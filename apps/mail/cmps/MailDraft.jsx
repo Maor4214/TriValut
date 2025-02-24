@@ -1,3 +1,3 @@
 export function MailDraft() {
-  return 'your draft mails here'
+  return <div className="main-mail-layout"> your draft mails here</div>
 }
