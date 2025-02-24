@@ -6,6 +6,15 @@
   input {
     border: none;
     background: none;
+    width: 100%;
+  }
+  .note-filter {
+    width: 100%;
+  }
+
+  input:focus {
+    outline: none;
+    border: none;
   }
   display: flex;
   height: 45px;
@@ -19,4 +28,10 @@
 
 .note-clear-btn {
   margin-left: auto;
+}
+
+.note-filter-form:focus-within {
+  background-color: rgb(255, 254, 254);
+  box-shadow: 0 1px 1px 0 rgba(65, 69, 73, 0.3),
+    0 1px 3px 1px rgba(65, 69, 73, 0.15);
 }

@@ -1,3 +1,3 @@
 export function NoteMemos() {
-  return <div>this is MEMO</div>
+  return <div>this is a reminder</div>
 }

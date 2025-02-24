@@ -1,6 +1,10 @@
 import { NoteFilter } from './NoteFilter.jsx'
 
-export function NoteHeader() {
+export function NoteHeader({ toggleSideBar }) {
+  function onSideBarToggle() {
+    toggleSideBar()
+  }
+
   function onSetFilter() {
     console.log('setting filter')
   }
@@ -9,6 +13,8 @@ export function NoteHeader() {
     <section className="notes-header">
       <div className="note-header-logos">
         <svg
+          onClick={onSideBarToggle}
+          className="side-bar-icon"
           xmlns="http://www.w3.org/2000/svg"
           height="32px"
           viewBox="0 -960 960 960"

@@ -20,12 +20,17 @@ export function NoteIndex() {
     noteService.getFilterFromSearchParams(searchParams)
   )
 
+  const [isSideBarOpen, setIsSideBarOpen] = useState(false)
   const [content, setCurrNote] = useState('note')
 
   useEffect(() => {
     setSearchParams(filterBy)
     loadNotes()
   }, [filterBy])
+
+  function toggleSideBar() {
+    setIsSideBarOpen((prev) => !prev)
+  }
 
   function loadNotes() {
     noteService.query(filterBy).then((notes) => {
@@ -42,9 +47,9 @@ export function NoteIndex() {
   return (
     <NoteProvider loadNotes={loadNotes}>
       <section className="note-app-container">
-        <NoteHeader />
+        <NoteHeader toggleSideBar={toggleSideBar} />
         <section className="notes-container">
-          <NoteSideBar></NoteSideBar>
+          <NoteSideBar isSideBarOpen={isSideBarOpen}></NoteSideBar>
           {/* <CreateNote loadNotes={loadNotes} /> */}
           <div className="content">
             <AddNewNote></AddNewNote>
