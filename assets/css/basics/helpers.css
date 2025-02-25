@@ -26,3 +26,14 @@
   all: unset;
   cursor: pointer;
 }
+
+.clean-input {
+  border: none;
+  background: none;
+  width: 100%;
+}
+
+.clean-input:focus {
+  outline: none;
+  border: none;
+}

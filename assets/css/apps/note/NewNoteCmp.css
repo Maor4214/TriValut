@@ -10,6 +10,23 @@
   flex-grow: 1;
 }
 
+.new-long-note-form {
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  height: 134px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.426);
+  flex-grow: 1;
+}
+
+.new-long-note-title,
+.new-long-note-txt {
+  box-sizing: border-box;
+  padding: 15px 10px 15px 10px;
+}
+
 .new-note-btns {
   justify-self: flex-end;
   display: flex;
@@ -30,4 +47,23 @@
   outline: none;
   background: none;
   width: 100%;
+}
+
+.new-note-navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 12px;
+  padding-top: 12px;
+}
+
+.new-note-close-btn {
+  padding: 8px 24px 8px 24px;
+  margin-right: 15px;
+}
+
+.new-note-navbar-features {
+  flex-grow: 0.7;
+  display: flex;
+  justify-content: space-between;
 }
