@@ -1,4 +1,9 @@
-export function LongNoteForm({ onSaveNote, handleChange, setIsExpandForm }) {
+export function LongNoteForm({
+  onSaveNote,
+  handleChange,
+  setIsExpandForm,
+  noteToCreate,
+}) {
   function handleSubmit(event) {
     event.preventDefault()
     handleChange(event)
@@ -118,7 +123,8 @@ export function LongNoteForm({ onSaveNote, handleChange, setIsExpandForm }) {
           <button
             className="clean-btn"
             onClick={(event) => {
-              onSaveNote(event)
+              if (noteToCreate.info.txt || noteToCreate.info.title)
+                onSaveNote(event)
               setIsExpandForm(false)
             }}
           >

@@ -7,7 +7,12 @@ export function NotePreview({ note, onNoteClick, onRemoveNote }) {
   const { id, createdAt, type, isPinned, style, info, todos } = note
 
   return (
-    <section className="note-item">
+    <section
+      onClick={() => {
+        onNoteClick(id)
+      }}
+      className="note-item"
+    >
       {type === 'noteVideo' && <VideoNote info={info} />}
       {type === 'noteImg' && <ImageNote info={info} />}
       <div className="note-title">{info.title}</div>

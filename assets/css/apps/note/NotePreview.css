@@ -54,3 +54,25 @@
     opacity: 1;
   }
 }
+
+.edit-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0;
+  width: 600px;
+  z-index: 20;
+  background-color: none;
+  border-radius: 8px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Dark semi-transparent background */
+  z-index: 10; /* Higher than background content */
+}

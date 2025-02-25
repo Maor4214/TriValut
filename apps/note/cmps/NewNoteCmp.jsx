@@ -24,6 +24,7 @@ export function NewNoteCmp() {
       .then(() => {
         showSuccessMsg(`note saved successfully!`)
         loadNotes()
+        setNoteToCreate(noteService.getEmptyNote())
         navigate('/notes')
       })
       .catch((err) => console.log('err:', err))
@@ -72,6 +73,7 @@ export function NewNoteCmp() {
           handleChange={handleChange}
           onSaveNote={onSaveNote}
           setIsExpandForm={setIsExpandForm}
+          noteToCreate={noteToCreate}
         />
       )}
     </section>
