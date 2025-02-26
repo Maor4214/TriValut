@@ -1,69 +1,77 @@
 .note-sidebar {
   grid-column: 1;
-  /* grid-row: 1/2; */
-  /* padding: 8px; */
   padding-top: 8px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   width: 280px;
   font-size: 14px;
-  svg {
-    /* height: 24px;
-    width: 24px; */
-  }
-  transition: 50ms ease-in-out;
+  background-color: #ffffff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease, box-shadow 0.3s ease;
 }
 
 .note-sidebar svg {
-  width: 24px; /* Ensure consistent size */
-  height: 24px; /* Ensure consistent size */
-  flex-shrink: 0; /* Prevent shrinking */
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
 }
 
 .note-sidebar button {
   all: unset;
   cursor: pointer;
-  /* border: 3px solid transparent; */
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   height: 48px;
-  padding-left: 12px;
-
-  span {
-  }
+  padding-left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
 }
 
 .note-sidebar-btn {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
 }
 
 .note-sidebar button > * {
-  /* padding: 6px; */
+  padding: 8px;
 }
+
 .note-sidebar .active {
-  box-shadow: 0 0 0 0 rgba(128, 128, 128, 0.265);
+  background-color: rgb(254, 239, 195); /* צבע רקע בעת לחיצה */
   border-radius: 0 2rem 2rem 0;
-  background-color: rgb(254, 239, 195);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.note-sidebar a:hover {
-  /* box-shadow: 0 0 0 0 rgba(128, 128, 128, 0.265);
-  border-radius: 0 2rem 2rem 0;
-  background-color: var(--gray2); */
-}
+
 .note-sidebar a {
-  display: block; /* Ensures link covers full button area */
-  /* width: 100%; */
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 0 2rem 2rem 0;
+  transition: background-color 0.3s ease;
 }
 
 .note-sidebar a:hover {
-  background-color: var(--keep-sidebar-hover);
+  background-color: #f1f3f4; /* צבע רקע בעת ריחוף */
   border-radius: 0 2rem 2rem 0;
 }
 
 .note-sidebar.open {
+  width: 280px;
 }
+
 .note-sidebar.close {
   width: 60px;
+  background-color: #f1f3f4;
+  box-shadow: none;
+}
+
+.note-sidebar .close .note-sidebar-btn {
+  justify-content: center;
+}
+
+.note-sidebar .close button {
+  padding-left: 0;
 }
