@@ -31,9 +31,9 @@ function query(filterBy = {}) {
 }
 
 function get(NoteId) {
-  return storageService
-    .get(Note_KEY, NoteId)
-    .then((Note) => _setNextPrevNoteId(Note))
+  return storageService.get(Note_KEY, NoteId).then((note) => {
+    return note
+  })
 }
 
 function remove(NoteId) {

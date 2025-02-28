@@ -1,0 +1,6 @@
+.image-note {
+  width: 100%;
+  img {
+    border-radius: 8px 8px 0px 0px;
+  }
+}
