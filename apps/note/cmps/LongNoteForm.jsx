@@ -99,6 +99,7 @@ export function LongNoteForm({
                     onSetNoteStyle={onSetNoteStyle}
                     noteToEdit={noteToEdit}
                     setNoteToEdit={setNoteToEdit}
+                    noteToCreate={noteToCreate}
                   />
                 )}
               </div>
