@@ -1,7 +1,6 @@
 const { useParams, useNavigate } = ReactRouterDOM
 const { useEffect, useState } = React
 const { useRef } = React
-import { CreateNote } from './CreateNote.jsx'
 import { noteService } from '../services/note.service.js'
 import { useNotes } from '../context/NoteContext.jsx'
 import { LongNoteForm } from './LongNoteForm.jsx'

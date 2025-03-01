@@ -1,5 +1,5 @@
-import { ImageNote } from './ImageNote.jsx'
-import { VideoNote } from './VideoNote.jsx'
+import { ImageNote } from './noteTypes/ImageNote.jsx'
+import { VideoNote } from './noteTypes/VideoNote.jsx'
 import { ColorPicker } from './ColorPicker.jsx'
 const { useState, useEffect } = React
 

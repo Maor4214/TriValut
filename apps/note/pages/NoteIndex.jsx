@@ -1,9 +1,7 @@
 const { Link } = ReactRouterDOM
 import { NoteHeader } from '../cmps/NoteHeader.jsx'
 import { NoteSideBar } from '../cmps/NoteSideBar.jsx'
-import { CreateNote } from '../cmps/CreateNote.jsx'
 import { NoteList } from '../cmps/NoteList.jsx'
-import { AddNewNote } from '../cmps/AddNewNote.jsx'
 
 import { noteService } from '../services/note.service.js'
 import { NoteProvider } from '../context/NoteContext.jsx'
@@ -52,9 +50,7 @@ export function NoteIndex() {
         <NoteHeader toggleSideBar={toggleSideBar} />
         <section className="notes-container">
           <NoteSideBar isSideBarOpen={isSideBarOpen}></NoteSideBar>
-          {/* <CreateNote loadNotes={loadNotes} /> */}
           <div className="content">
-            {/* <AddNewNote></AddNewNote> */}
             <NewNoteCmp />
             <DynamicNoteContent notes={notes} onRemoveNote={onRemoveNote} />
           </div>

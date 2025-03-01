@@ -1,7 +1,7 @@
-import { TodoNote } from './TodoNote.jsx'
-import { TextNote } from './TextNote.jsx'
-import { VideoNote } from './VideoNote.jsx'
-import { ImageNote } from './ImageNote.jsx'
+import { TodoNote } from './noteTypes/TodoNote.jsx'
+import { TextNote } from './noteTypes/TextNote.jsx'
+import { VideoNote } from './noteTypes/VideoNote.jsx'
+import { ImageNote } from './noteTypes/ImageNote.jsx'
 
 export function NotePreview({ note, onNoteClick, onRemoveNote }) {
   const { id, createdAt, type, isPinned, style, info, todos } = note
