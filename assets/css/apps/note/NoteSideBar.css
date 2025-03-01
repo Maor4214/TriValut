@@ -49,6 +49,7 @@
   background-color: rgb(254, 239, 195);
 }
 .note-sidebar a:hover {
+  /*this is a test*/
   /* box-shadow: 0 0 0 0 rgba(128, 128, 128, 0.265);
   border-radius: 0 2rem 2rem 0;
   background-color: var(--gray2); */
