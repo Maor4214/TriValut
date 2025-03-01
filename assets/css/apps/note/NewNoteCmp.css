@@ -9,6 +9,8 @@
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.426);
   flex-grow: 1;
 }
+.new-note-form button:hover {
+}
 
 .new-long-note-form {
   display: flex;
