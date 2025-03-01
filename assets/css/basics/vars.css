@@ -14,8 +14,9 @@
 
 
      /* 🎨 Primary Colors */
-    --keep-bg: #fffde7; /* Light yellow background */
     --keep-filter-bg: #f1f3f4;
+    --keep-bg: #fffde7; /* Light yellow background */
+
     --keep-header-bg: #f1f3f4; /* Light grayish top bar */
     --keep-text: #202124; /* Default text color */
     --keep-secondary-text: #5f6368; /* Muted text */

@@ -8,6 +8,7 @@ import { AddNewNote } from '../cmps/AddNewNote.jsx'
 import { noteService } from '../services/note.service.js'
 import { NoteProvider } from '../context/NoteContext.jsx'
 import { DynamicNoteContent } from '../cmps/DynamicNoteContent.jsx'
+import { NewNoteCmp } from '../cmps/NewNoteCmp.jsx'
 
 const { useEffect, useState } = React
 const { useSearchParams } = ReactRouterDOM
@@ -54,7 +55,7 @@ export function NoteIndex() {
           {/* <CreateNote loadNotes={loadNotes} /> */}
           <div className="content">
             {/* <AddNewNote></AddNewNote> */}
-
+            <NewNoteCmp />
             <DynamicNoteContent notes={notes} onRemoveNote={onRemoveNote} />
           </div>
         </section>

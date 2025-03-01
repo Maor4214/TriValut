@@ -31,9 +31,9 @@ function query(filterBy = {}) {
 }
 
 function get(NoteId) {
-  return storageService
-    .get(Note_KEY, NoteId)
-    .then((Note) => _setNextPrevNoteId(Note))
+  return storageService.get(Note_KEY, NoteId).then((note) => {
+    return note
+  })
 }
 
 function remove(NoteId) {
@@ -103,6 +103,54 @@ function _createNotes() {
         false,
         { backgroundColor: '#0011DD' },
         { txt: 'Fullstack Me Baby!', title: 'Fullstack' }
+      )
+    )
+    Notes.push(
+      _createNote(
+        'noteImg',
+        false,
+        { backgroundColor: '#0011DD' },
+        {
+          url: 'https://picsum.photos/200/300',
+          title: 'Image note demo',
+          txt: 'image text demo',
+        }
+      )
+    )
+    Notes.push(
+      _createNote(
+        'noteImg',
+        false,
+        { backgroundColor: '#0011DD' },
+        {
+          url: 'https://picsum.photos/200/300',
+          title: 'Image note demo',
+          txt: 'image text demo',
+        }
+      )
+    )
+    Notes.push(
+      _createNote(
+        'noteImg',
+        false,
+        { backgroundColor: '#0011DD' },
+        {
+          url: 'https://picsum.photos/200/300',
+          title: 'Image note demo',
+          txt: 'image text demo',
+        }
+      )
+    )
+    Notes.push(
+      _createNote(
+        'noteImg',
+        false,
+        { backgroundColor: '#0011DD' },
+        {
+          url: 'https://picsum.photos/200/300',
+          title: 'Image note demo',
+          txt: 'image text demo',
+        }
       )
     )
     Notes.push(

@@ -12,8 +12,32 @@
 }
 
 .note-header-utils {
-  background-color: red;
   margin-left: auto;
+  display: flex;
+  gap: 40px;
+  padding-right: 40px;
+}
+
+.keep-utils-btns {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  button {
+    width: 32px;
+  }
+}
+
+.keep-utils-btns button:hover,
+.google-utils-btns button:hover {
+  background-color: red;
+  background-color: var(--keep-sidebar-hover);
+  border-radius: 50%;
+}
+
+.google-utils-btns {
+  display: flex;
+  width: 60px;
+  gap: 20px;
 }
 .notes-header .keep-logo {
   display: flex;
