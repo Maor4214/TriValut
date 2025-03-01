@@ -77,8 +77,8 @@ export function Note() {
   }, [navigate])
 
   function onClickOutside(ev) {
-    ev.stopPropagation()
     console.log(ev.target)
+    console.log('clicked outside')
 
     if (!dialogRef.current.contains(ev.target)) {
       navigate('/notes')
@@ -89,6 +89,7 @@ export function Note() {
     <React.Fragment>
       <dialog className="edit-dialog" ref={dialogRef} open>
         <LongNoteForm
+          setNoteToEdit={setNoteToEdit}
           noteToEdit={noteToEdit}
           handleChange={handleChange}
           noteToCreate={null}

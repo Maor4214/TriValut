@@ -8,6 +8,7 @@ export function NotePreview({ note, onNoteClick, onRemoveNote }) {
 
   return (
     <section
+      style={{ backgroundColor: note.style.backgroundColor }}
       onClick={() => {
         onNoteClick(id)
       }}
