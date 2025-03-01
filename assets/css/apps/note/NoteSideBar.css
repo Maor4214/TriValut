@@ -1,0 +1,71 @@
+.note-sidebar {
+  /* grid-column: 1; */
+  /* grid-row: 1/2; */
+  /* padding: 8px; */
+  padding-top: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  font-size: 14px;
+  margin-right: 100px;
+  svg {
+    /* height: 24px;
+    width: 24px; */
+  }
+  transition: 50ms ease-in-out;
+}
+
+.note-sidebar svg {
+  width: 24px; /* Ensure consistent size */
+  height: 24px; /* Ensure consistent size */
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.note-sidebar button {
+  all: unset;
+  cursor: pointer;
+  /* border: 3px solid transparent; */
+  transition: all 0.3s ease;
+  height: 48px;
+  padding-left: 12px;
+
+  span {
+  }
+}
+
+.note-sidebar-btn {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.note-sidebar button > * {
+  /* padding: 6px; */
+}
+.note-sidebar .active {
+  box-shadow: 0 0 0 0 rgba(128, 128, 128, 0.265);
+  border-radius: 0 2rem 2rem 0;
+  background-color: rgb(254, 239, 195);
+}
+.note-sidebar a:hover {
+  /*this is a test*/
+  /* box-shadow: 0 0 0 0 rgba(128, 128, 128, 0.265);
+  border-radius: 0 2rem 2rem 0;
+  background-color: var(--gray2); */
+}
+.note-sidebar a {
+  display: block; /* Ensures link covers full button area */
+  /* width: 100%; */
+}
+
+.note-sidebar a:hover {
+  background-color: var(--keep-sidebar-hover);
+  border-radius: 0 2rem 2rem 0;
+}
+
+.note-sidebar.open {
+}
+.note-sidebar.close {
+  width: 60px;
+}
