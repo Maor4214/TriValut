@@ -52,6 +52,12 @@ export function LongNoteForm({
         onSubmit={handleSubmit}
         className="new-long-note-form flex column "
       >
+        {noteToEdit.type === 'noteImg' && (
+          <ImageNote info={noteToEdit.info}></ImageNote>
+        )}
+        {noteToEdit.type === 'noteVideo' && (
+          <VideoNote info={noteToEdit.info}></VideoNote>
+        )}
         <input
           className="new-long-note-title  clean-input"
           type="text"
