@@ -19,13 +19,13 @@ export const noteService = {
 function query(filterBy = {}) {
   return storageService.query(Note_KEY).then((Notes) => {
     // console.log('Notes:', Notes)
-    if (filterBy.vendor) {
-      const regExp = new RegExp(filterBy.vendor, 'i')
-      Notes = Notes.filter((Note) => regExp.test(Note.vendor))
+    if (filterBy.txt) {
+      const regExp = new RegExp(filterBy.txt, 'i')
+      Notes = Notes.filter((Note) => regExp.test(Note.info.txt))
     }
-    if (filterBy.minSpeed) {
-      Notes = Notes.filter((Note) => Note.speed >= filterBy.minSpeed)
-    }
+    // if (filterBy.title) {
+    //   Notes = Notes.filter((Note) => Note.speed >= filterBy.minSpeed)
+    // }
     return Notes
   })
 }

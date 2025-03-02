@@ -1,12 +1,8 @@
 import { NoteFilter } from './NoteFilter.jsx'
 
-export function NoteHeader({ toggleSideBar }) {
+export function NoteHeader({ toggleSideBar, onSetFilter, filterBy }) {
   function onSideBarToggle() {
     toggleSideBar()
-  }
-
-  function onSetFilter() {
-    console.log('setting filter')
   }
 
   return (
@@ -48,7 +44,7 @@ export function NoteHeader({ toggleSideBar }) {
         </div>
       </div>
 
-      <NoteFilter onSetFilter={onSetFilter} />
+      <NoteFilter onSetFilter={onSetFilter} filterBy={filterBy} />
       <div className="note-header-utils">
         <div className="keep-utils-btns">
           <button className="clean-btn">

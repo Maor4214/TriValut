@@ -23,6 +23,7 @@ export function NoteIndex() {
   const [content, setCurrNote] = useState('note')
 
   useEffect(() => {
+    console.log('filter by: ', filterBy)
     setSearchParams(filterBy)
     loadNotes()
   }, [filterBy])
@@ -38,6 +39,10 @@ export function NoteIndex() {
     })
   }
 
+  function onSetFilter(filterBy) {
+    setFilterBy({ ...filterBy })
+  }
+
   function onRemoveNote(noteId) {
     noteService.remove(noteId).then(() => {
       loadNotes()
@@ -47,7 +52,11 @@ export function NoteIndex() {
   return (
     <NoteProvider loadNotes={loadNotes}>
       <section className="note-app-container">
-        <NoteHeader toggleSideBar={toggleSideBar} />
+        <NoteHeader
+          toggleSideBar={toggleSideBar}
+          onSetFilter={onSetFilter}
+          filterBy={filterBy}
+        />
         <section className="notes-container">
           <NoteSideBar isSideBarOpen={isSideBarOpen}></NoteSideBar>
           <div className="content">
