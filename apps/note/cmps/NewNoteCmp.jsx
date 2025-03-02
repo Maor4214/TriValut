@@ -73,7 +73,7 @@ export function NewNoteCmp() {
           handleChange={handleChange}
           onSaveNote={onSaveNote}
           setIsExpandForm={setIsExpandForm}
-          noteToCreate={noteToCreate}
+          noteToEdit={noteToCreate}
         />
       )}
     </section>
