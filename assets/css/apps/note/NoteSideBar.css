@@ -9,6 +9,10 @@
   width: 280px;
   font-size: 14px;
   margin-right: 100px;
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: max-content;
   svg {
     /* height: 24px;
     width: 24px; */

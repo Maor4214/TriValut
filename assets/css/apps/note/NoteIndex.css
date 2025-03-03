@@ -1,6 +1,8 @@
 .notes-container {
   display: grid;
   grid-template-columns: auto 1fr;
+  height: 100vh;
+  overflow: auto;
 }
 
 .note-app-container {
