@@ -1,15 +1,30 @@
-const { useEffect, useState } = React
+import { utilService } from '../../../services/util.service.js'
+const { useEffect, useState, useRef } = React
 
-export function NoteFilter({ onSetFilter }) {
-  const [filterBy, setFilterBy] = useState('')
+export function NoteFilter({ onSetFilter, handleSearch, filterBy }) {
+  const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
+  const onSetFilterDebounced = useRef(utilService.debounce(onSetFilter, 500))
 
-  function handleChange(event) {
-    setFilterBy(event.target.value)
-    onSetFilter(event.target.value)
+  useEffect(() => {
+    onSetFilterDebounced.current(filterByToEdit)
+  }, [filterByToEdit])
+
+  function handleChange({ target }) {
+    let { value, name: field, type } = target
+    if (type === 'number') value = +value
+    // if(type === 'checkbox') value = target.checked
+
+    setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
+    console.log('filter by to edit: ', filterByToEdit)
   }
+  function onSubmitFilter(ev) {
+    ev.preventDefault()
+    onSetFilter(filterByToEdit)
+  }
+  const { title, txt } = filterByToEdit
 
   return (
-    <form className="note-filter-form">
+    <form className="note-filter-form" onSubmit={onSubmitFilter}>
       <button className="note-search-btn">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +40,8 @@ export function NoteFilter({ onSetFilter }) {
         <input
           type="text"
           placeholder="Search notes..."
-          value={filterBy}
+          name="txt"
+          value={txt}
           onChange={handleChange}
         />
       </div>

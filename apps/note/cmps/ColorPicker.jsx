@@ -5,7 +5,6 @@ export function ColorPicker({
   backgroundColor,
   noteToEdit,
   setNoteToEdit,
-  noteToCreate,
 }) {
   const colors = [
     '#faafa8',
@@ -22,15 +21,11 @@ export function ColorPicker({
   ]
 
   function onSetColor(color) {
-    const updatedNote = noteToEdit
-      ? {
-          ...noteToEdit,
-          style: { ...noteToEdit.style, backgroundColor: color },
-        }
-      : {
-          ...noteToCreate,
-          style: { ...noteToCreate.style, backgroundColor: color },
-        }
+    const updatedNote = {
+      ...noteToEdit,
+      style: { ...noteToEdit.style, backgroundColor: color },
+    }
+
     console.log(updatedNote)
     noteService
       .save(updatedNote)

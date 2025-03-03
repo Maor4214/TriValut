@@ -53,6 +53,9 @@
   .note-navbar {
     opacity: 1;
   }
+  .pinned-button {
+    opacity: 1;
+  }
 }
 
 .edit-dialog {
@@ -65,6 +68,8 @@
   z-index: 20;
   background-color: none;
   border-radius: 8px;
+  position: absolute;
+  top: 25vh;
 }
 
 .modal-overlay {
@@ -75,4 +80,12 @@
   height: 100vh;
   background: rgba(0, 0, 0, 0.5); /* Dark semi-transparent background */
   z-index: 10; /* Higher than background content */
+}
+
+.pinned-button {
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 200px;
+  opacity: 0;
+  transition: 300ms ease-in-out;
 }

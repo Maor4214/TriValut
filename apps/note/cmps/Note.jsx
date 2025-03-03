@@ -28,7 +28,7 @@ export function Note() {
   }
 
   function loadNote(noteId) {
-    noteService.get(noteId).then((note) => {
+    return noteService.get(noteId).then((note) => {
       setNoteToEdit(note)
       console.log('set note to edit:', note)
     })
@@ -65,9 +65,14 @@ export function Note() {
   }
 
   useEffect(() => {
-    document.body.classList.add('dialog-open')
-    document.addEventListener('mousedown', onClickOutside)
-    loadNote(noteId)
+    if (noteId) {
+      loadNote(noteId).then(() => {
+        document.body.classList.add('dialog-open')
+        document.addEventListener('mousedown', onClickOutside)
+        console.log('opened edit dialog')
+      })
+    }
+
     return () => {
       document.body.classList.remove('dialog-open')
       document.removeEventListener('mousedown', onClickOutside)
@@ -83,7 +88,7 @@ export function Note() {
       navigate('/notes')
     }
   }
-
+  let testVar = 'abvc'
   return isDialogOpen ? (
     <React.Fragment>
       <dialog className="edit-dialog" ref={dialogRef} open>
@@ -91,7 +96,6 @@ export function Note() {
           setNoteToEdit={setNoteToEdit}
           noteToEdit={noteToEdit}
           handleChange={handleChange}
-          noteToCreate={null}
           onSaveNote={onSaveNote}
           setIsExpandForm={() => {
             console.log('this should not be printed')

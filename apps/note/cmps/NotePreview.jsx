@@ -2,9 +2,16 @@ import { TodoNote } from './noteTypes/TodoNote.jsx'
 import { TextNote } from './noteTypes/TextNote.jsx'
 import { VideoNote } from './noteTypes/VideoNote.jsx'
 import { ImageNote } from './noteTypes/ImageNote.jsx'
+import { noteService } from '../services/note.service.js'
+const { useState, useEffect } = React
 
-export function NotePreview({ note, onNoteClick, onRemoveNote }) {
-  const { id, createdAt, type, isPinned, style, info, todos } = note
+export function NotePreview({ note, onNoteClick, onRemoveNote, onTogglePin }) {
+  const { id, createdAt, type, style, info, isPinned, todos } = note
+
+  function handleTogglePinned(ev) {
+    ev.stopPropagation()
+    onTogglePin(id, !isPinned)
+  }
 
   return (
     <section
@@ -14,6 +21,25 @@ export function NotePreview({ note, onNoteClick, onRemoveNote }) {
       }}
       className="note-item"
     >
+      {
+        <button
+          className="pinned-button clean-btn"
+          onClick={handleTogglePinned}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path
+              fill="#5f6368"
+              d="M17 4v7l2 3v2h-6v5l-1 1-1-1v-5H5v-2l2-3V4c0-1.1.9-2 2-2h6c1.11 0 2 .89 2 2zM9 4v7.75L7.5 14h9L15 11.75V4H9z"
+            />
+          </svg>
+        </button>
+      }
       {type === 'noteVideo' && <VideoNote info={info} />}
       {type === 'noteImg' && <ImageNote info={info} />}
       <div className="note-title">{info.title}</div>
@@ -90,54 +116,3 @@ export function NotePreview({ note, onNoteClick, onRemoveNote }) {
     </section>
   )
 }
-
-function DynamicNote({ type, info }) {
-  switch (type) {
-    case 'noteTxt':
-      return <TextNote info={info}></TextNote>
-      break
-    case 'noteImg':
-      return (
-        <div>
-          <ImageNote info={info}></ImageNote>
-          <TextNote info={info}></TextNote>
-        </div>
-      )
-
-      break
-    case 'noteVideo':
-      return (
-        <div>
-          <VideoNote info={info}></VideoNote>
-          <TextNote info={info}></TextNote>
-        </div>
-      )
-
-      break
-    case 'noteTodos':
-      return (
-        <div>
-          <TodoNote info={info}></TodoNote>
-          <TextNote info={info}></TextNote>
-        </div>
-      )
-    default:
-      return <div>no such type note</div>
-      break
-  }
-}
-
-// const notes = [ {
-//   id: 'n101',
-//   createdAt: 1112222,
-//   type: 'NoteTxt' ,
-//   isPinned: true,
-//   style: { backgroundColor: '#00d' },
-//   info: { txt: 'Fullstack Me Baby!' },
-//   todos: [
-//     { id: 't101', txt: 'todo 1', isDone: true },
-//     { id: 't102', txt: 'todo 2', isDone: false },
-//     { id: 't103', txt: 'todo 3', isDone: false },
-//   ],
-//   label: 'important'
-// }]
