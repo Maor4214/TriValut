@@ -88,7 +88,7 @@ export function Note() {
       navigate('/notes')
     }
   }
-
+  let testVar = 'abvc'
   return isDialogOpen ? (
     <React.Fragment>
       <dialog className="edit-dialog" ref={dialogRef} open>

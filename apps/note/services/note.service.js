@@ -23,6 +23,11 @@ function query(filterBy = {}) {
       const regExp = new RegExp(filterBy.txt, 'i')
       Notes = Notes.filter((Note) => regExp.test(Note.info.txt))
     }
+    if (filterBy.isPinned) {
+      Notes = Notes.filter((Note) => Note.isPinned)
+    } else if (!filterBy.isPinned) {
+      Notes = Notes.filter((Note) => !Note.isPinned)
+    }
     // if (filterBy.title) {
     //   Notes = Notes.filter((Note) => Note.speed >= filterBy.minSpeed)
     // }
@@ -100,8 +105,8 @@ function _createNotes() {
     Notes.push(
       _createNote(
         'noteTxt',
-        false,
-        { backgroundColor: '#0011DD' },
+        true,
+        { backgroundColor: '#fff' },
         { txt: 'Fullstack Me Baby!', title: 'Fullstack' }
       )
     )
@@ -121,7 +126,19 @@ function _createNotes() {
       _createNote(
         'noteImg',
         false,
-        { backgroundColor: '#0011DD' },
+        { backgroundColor: '#fff' },
+        {
+          url: 'https://picsum.photos/200/300',
+          title: 'Image note demo',
+          txt: 'image text demo',
+        }
+      )
+    )
+    Notes.push(
+      _createNote(
+        'noteImg',
+        true,
+        { backgroundColor: '#fff' },
         {
           url: 'https://picsum.photos/200/300',
           title: 'Image note demo',
@@ -133,7 +150,7 @@ function _createNotes() {
       _createNote(
         'noteImg',
         false,
-        { backgroundColor: '#0011DD' },
+        { backgroundColor: '#fff' },
         {
           url: 'https://picsum.photos/200/300',
           title: 'Image note demo',
@@ -145,19 +162,7 @@ function _createNotes() {
       _createNote(
         'noteImg',
         false,
-        { backgroundColor: '#0011DD' },
-        {
-          url: 'https://picsum.photos/200/300',
-          title: 'Image note demo',
-          txt: 'image text demo',
-        }
-      )
-    )
-    Notes.push(
-      _createNote(
-        'noteImg',
-        false,
-        { backgroundColor: '#0011DD' },
+        { backgroundColor: '#fff' },
         {
           url: 'https://picsum.photos/200/300',
           title: 'Image note demo',
@@ -169,7 +174,7 @@ function _createNotes() {
       _createNote(
         'noteVideo',
         false,
-        { backgroundColor: '#0011DD' },
+        { backgroundColor: '#fff' },
         {
           url: './assets/videos/video-demo.mp4',
           title: 'video note demo',
@@ -181,7 +186,7 @@ function _createNotes() {
       _createNote(
         'noteTodos',
         false,
-        { backgroundColor: '#0011DD' },
+        { backgroundColor: '#fff' },
 
         {
           title: 'Get my stuff together',

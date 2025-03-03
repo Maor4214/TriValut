@@ -1,8 +1,9 @@
-import { NotePreview } from './NotePreview.jsx'
 const { useEffect, useState } = React
 const { Link, Outlet, useSearchParams, useNavigate } = ReactRouterDOM
 
-export function NoteList({ notes, onRemoveNote, onTogglePin }) {
+import { NotePreview } from './NotePreview.jsx'
+
+export function PinnedNoteList({ notes, onRemoveNote, onTogglePin }) {
   const navigate = useNavigate()
 
   function onNoteClick(noteId) {
@@ -12,7 +13,6 @@ export function NoteList({ notes, onRemoveNote, onTogglePin }) {
   if (!notes) return <div>Loading...</div>
   return (
     <section className="note-list">
-      <Outlet />
       {notes &&
         notes.map((note) => {
           return (
