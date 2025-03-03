@@ -2,6 +2,12 @@ import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
 
 const mail_KEY = 'mailDB'
+
+const loggedinUser = {
+  email: 'Maoryad@TriValut.com',
+  fullname: 'Maor Yadegar',
+}
+
 _createmails()
 
 export const mailService = {
@@ -49,29 +55,20 @@ function save(mail) {
   }
 }
 
-// const mail = { id: 'e101',
-// createdAt : 1551133930500,
-// subject: 'Miss you!',
-// body: 'Would love to catch up sometimes',
-// isRead: false,
-// sentAt : 1551133930594,
-// removedAt : null,
-// from: 'momo@momo.com', to: 'user@appsus.com' }
-
-// const loggedinUser =
-// {
-// email: 'user@appsus.com',
-// fullname: 'Mahatma Appsus'
-// }
-
-function getEmptymail(type = 'mailTxt', info = { title: '', txt: '' }) {
+function getEmptymail() {
   return {
     createdAt: Date.now(),
-    info,
-    isPinned: false,
-    style: { backgroundColor: '#00d' },
-    todos: [],
-    type,
+    subject: ' ',
+    body: ' ',
+    isRead: false,
+    isStarred: false,
+    isArchive: false,
+    isDraft: true,
+    isDeleted: false,
+    sentAt: null,
+    removeAt: null,
+    from: loggedinUser.email,
+    to: ' ',
   }
 }
 
@@ -94,22 +91,6 @@ function getFilterFromSearchParams(searchParams) {
   return { type, txt, label }
 }
 
-// const mail = { id: 'e101',
-// createdAt : 1551133930500,
-// subject: 'Miss you!',
-// body: 'Would love to catch up sometimes',
-// isRead: false,
-// sentAt : 1551133930594,
-// removedAt : null,
-// from: 'momo@momo.com',
-//  to: 'user@appsus.com' }
-
-// const loggedinUser =
-// {
-// email: 'user@appsus.com',
-// fullname: 'Mahatma Appsus'
-// }
-
 function _createmails() {
   let mails = utilService.loadFromStorage(mail_KEY)
   if (!mails || !mails.length) {
@@ -118,6 +99,10 @@ function _createmails() {
       _createmail(
         'Whats up?',
         'Long time no see, lets code sometime',
+        false,
+        true,
+        false,
+        false,
         false,
         'Maoryad@TriValut.com',
         'Tomera.almog9@TriValut.com'
@@ -128,6 +113,10 @@ function _createmails() {
         'Time to code!',
         'lets make TriValt the best app ever!',
         true,
+        false,
+        false,
+        false,
+        true,
         'Maoryad@TriValut.com',
         'Tomera.almog9@TriValut.com'
       )
@@ -136,13 +125,27 @@ function _createmails() {
   }
 }
 
-function _createmail(subject, body, isRead, from, to) {
+function _createmail(
+  subject,
+  body,
+  isRead,
+  isStarred,
+  isArchive,
+  isDraft,
+  isDeleted,
+  from,
+  to
+) {
   const mail = {
     id: utilService.makeId(),
     createdAt: Date.now(),
     subject,
     body,
     isRead,
+    isStarred,
+    isArchive,
+    isDraft,
+    isDeleted,
     sentAt: null,
     removeAt: null,
     from,

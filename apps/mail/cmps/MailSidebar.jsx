@@ -1,10 +1,17 @@
 const { Link, NavLink } = ReactRouterDOM
+const { useState } = React
 
-export function MailSidebar({ isSideBarOpen }) {
+export function MailSidebar({ isSideBarOpen, openCompose }) {
+  const [isShowCompose, setIsShowCompose] = useState(false)
+
+  const toggleComposeWindow = (previsShowCompose) => {
+    setIsShowCompose(!previsShowCompose)
+  }
+
   return (
     <ul className={`mail-side-bar ${isSideBarOpen ? '' : 'close'}`}>
       <li>
-        <a href="">
+        <a onClick={openCompose} href="">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"

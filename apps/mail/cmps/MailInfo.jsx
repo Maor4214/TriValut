@@ -5,10 +5,30 @@ const { useEffect, useState } = React
 
 export function MailInfo() {
   const [mail, setMail] = useState(null)
+  const navigate = useNavigate()
   const { mailId } = useParams()
   useEffect(() => {
     loadMail()
   }, [mailId])
+
+  function onGoBack() {
+    navigate(-1)
+  }
+
+  function onSendArchive() {
+    console.log('sending to archive..')
+  }
+  function onReportSpam() {
+    console.log('mail reported as a spam..')
+  }
+
+  function onSendDelete() {
+    console.log('sending this mail to trash folder')
+  }
+
+  function onMarkUnread() {
+    console.log('mail now Unread..')
+  }
 
   function loadMail() {
     mailService
@@ -23,6 +43,7 @@ export function MailInfo() {
     <section className="view-mail">
       <nav className="mail-nav">
         <svg
+          onClick={onGoBack}
           className="go-back"
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
@@ -33,6 +54,7 @@ export function MailInfo() {
           <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
         </svg>
         <svg
+          onClick={onSendArchive}
           className="send-archive"
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
@@ -44,6 +66,7 @@ export function MailInfo() {
         </svg>
 
         <svg
+          onClick={onReportSpam}
           className="report-spam"
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
@@ -54,6 +77,7 @@ export function MailInfo() {
           <path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240ZM330-120 120-330v-300l210-210h300l210 210v300L630-120H330Zm34-80h232l164-164v-232L596-760H364L200-596v232l164 164Zm116-280Z" />
         </svg>
         <svg
+          onClick={onSendDelete}
           className="delete-mail"
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
@@ -65,6 +89,7 @@ export function MailInfo() {
         </svg>
 
         <svg
+          onClick={onMarkUnread}
           className="mark-unread"
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
@@ -75,6 +100,7 @@ export function MailInfo() {
           <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h404q-4 20-4 40t4 40H160l320 200 146-91q14 13 30.5 22.5T691-572L480-440 160-640v400h640v-324q23-5 43-14t37-22v360q0 33-23.5 56.5T800-160H160Zm0-560v480-480Zm600 80q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35Z" />
         </svg>
         <svg
+          onClick={() => onChangeMail(-1)}
           className="older-mail"
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
@@ -86,6 +112,7 @@ export function MailInfo() {
         </svg>
 
         <svg
+          onClick={() => onChangeMail(1)}
           className="newer-mail"
           xmlns="http://www.w3.org/2000/svg"
           height="24px"

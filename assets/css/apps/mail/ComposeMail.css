@@ -1,0 +1,117 @@
+.compose-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 400px;
+  height: auto;
+  z-index: 1;
+}
+
+.compose-wrapper.open {
+  display: flex;
+}
+
+.compose-container {
+  width: 400px;
+  max-width: 90%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+  transition: transform 0.3s ease-in-out;
+}
+
+.compose-container.minimized {
+  transform: translateY(50%); /* מצמצם את החלון כלפי מטה */
+  width: 300px; /* ניתן לשנות לפי הצורך */
+}
+
+/* שדות קלט */
+.email-field {
+  margin-bottom: 15px;
+}
+
+.email-field label {
+  font-size: 14px;
+  color: #5f6368;
+  font-weight: 500;
+}
+
+.email-field input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #dcdfe1;
+  border-radius: 8px;
+  background-color: #f1f3f4;
+  margin-top: 5px;
+}
+
+textarea:focus {
+  border-color: #5e5e5e;
+}
+
+.compose-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.cancel-button,
+.send-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel-button {
+  background-color: #f1f3f4;
+  color: #5f6368;
+}
+
+.send-button {
+  background-color: #1a73e8;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #e8e8e8;
+}
+
+.send-button:hover {
+  background-color: #0c60d1;
+}
+
+/* כפתורים */
+.compose-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.compose-header h2 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #202124;
+}
+
+button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.minimize-btn,
+.close-btn {
+  color: #5f6368;
+}
+
+.minimize-btn:hover,
+.close-btn:hover {
+  color: #202124;
+}
