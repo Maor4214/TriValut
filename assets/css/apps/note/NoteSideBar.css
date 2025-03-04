@@ -69,8 +69,16 @@
 }
 
 .note-sidebar.open {
+  width: 280px;
 }
 
 .note-sidebar.close {
-  width: 60px;
+  width: 48px;
+}
+.note-sidebar.close a {
+  border-radius: 50%;
+}
+
+.note-sidebar.close a:hover {
+  border-radius: 0 2rem 2rem 0;
 }

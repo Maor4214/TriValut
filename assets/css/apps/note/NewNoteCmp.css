@@ -23,6 +23,13 @@
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.426);
   flex-grow: 1;
   background-color: #f4f7f8;
+  max-height: 80vh; /* Limit the form's height */
+  overflow-y: auto; /* Enable scrolling within the form */
+  overflow-x: hidden;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  position: relative;
 }
 
 .new-long-note-title,
@@ -71,3 +78,9 @@
   display: flex;
   justify-content: space-between;
 }
+/* 
+.new-note-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+} */

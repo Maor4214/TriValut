@@ -114,7 +114,7 @@ function _createNotes() {
       _createNote(
         'noteImg',
         false,
-        { backgroundColor: '#0011DD' },
+        { backgroundColor: '#fff' },
         {
           url: 'https://picsum.photos/200/300',
           title: 'Image note demo',
@@ -170,18 +170,7 @@ function _createNotes() {
         }
       )
     )
-    Notes.push(
-      _createNote(
-        'noteVideo',
-        false,
-        { backgroundColor: '#fff' },
-        {
-          url: './assets/videos/video-demo.mp4',
-          title: 'video note demo',
-          txt: 'video demo text',
-        }
-      )
-    )
+
     Notes.push(
       _createNote(
         'noteTodos',

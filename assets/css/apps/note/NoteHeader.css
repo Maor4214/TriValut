@@ -32,8 +32,7 @@
 
 .keep-utils-btns button:hover,
 .google-utils-btns button:hover {
-  background-color: red;
-  background-color: var(--keep-sidebar-hover);
+  background-color: var(--keep-secondary-text);
   border-radius: 50%;
 }
 
@@ -46,6 +45,10 @@
   display: flex;
   gap: 10px;
   align-items: center;
+  h2 {
+    font-weight: 400;
+    color: #656565;
+  }
 }
 
 .note-header-logos {
@@ -60,4 +63,13 @@
 
 .new-notes i:not(:last-child) {
   margin-right: 10px;
+}
+
+@media (max-width: 750px) {
+  .notes-header {
+    width: 100%;
+  }
+  .note-header-utils {
+    display: none;
+  }
 }
