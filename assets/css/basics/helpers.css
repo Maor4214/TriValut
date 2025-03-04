@@ -37,3 +37,13 @@
   outline: none;
   border: none;
 }
+
+.clean-list {
+  list-style: none; /* Remove default bullets */
+  margin: 0;
+  padding: 0;
+}
+
+.clean-list li {
+  padding: 4px 0; /* Add spacing between items */
+}
