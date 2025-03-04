@@ -24,22 +24,32 @@
 .keep-utils-btns {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  /* gap: 20px; */
   button {
-    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
   }
 }
 
 .keep-utils-btns button:hover,
 .google-utils-btns button:hover {
-  background-color: var(--keep-secondary-text);
+  /* background-color: var(--keep-secondary-text); */
+  background-color: var(--keep-sidebar-hover);
+
   border-radius: 50%;
 }
 
 .google-utils-btns {
   display: flex;
-  width: 60px;
   gap: 20px;
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+  }
 }
 .notes-header .keep-logo {
   display: flex;
