@@ -1,19 +1,44 @@
 import { mailService } from '../services/mail.service.js'
 import { utilService } from '../../../services/util.service.js'
+import { showSuccessMsg } from '../../../services/event-bus.service.js'
 
 const { useState, useEffect } = React
 const debounceSave = utilService.debounce(mailService.save, 1500)
 
-export function MailCompose() {
+export function MailCompose({ toggleCompose }) {
   const [isOpen, setIsOpen] = useState(false)
   const [isMinimized, setIsMinimized] = useState(false)
   const [mailToCreate, setMailToCreate] = useState(mailService.getEmptymail())
-
+  const [debounceTimeout, setDebounceTimeout] = useState(null)
   useEffect(() => {
     mailService.save(mailToCreate).then((mail) => setMailToCreate(mail))
   }, [])
-  const handleSend = () => {
-    console.log('Sending email...')
+
+  function handleSend(ev) {
+    ev.preventDefault()
+    if (!mailToCreate.to) {
+      return console.log('pls choose someone to send')
+    }
+
+    if (debounceTimeout) {
+      clearTimeout(debounceTimeout)
+    }
+
+    const updatedMail = {
+      ...mailToCreate,
+      isDraft: false,
+      sentAt: Date.now(),
+    }
+    console.log('Mail about to be saved:', updatedMail)
+    mailService
+      .save(updatedMail)
+      .then(() => {
+        console.log('updatedMail', updatedMail)
+        showSuccessMsg(`Mail sent successfully!`)
+        setMailToCreate(mailService.getEmptymail())
+        toggleCompose(ev)
+      })
+      .catch((err) => console.log('err:', err))
   }
 
   const closeCompose = () => {
@@ -29,7 +54,16 @@ export function MailCompose() {
     const field = target.name
     let value = target.value
     setMailToCreate((prevInfo) => ({ ...prevInfo, [field]: value }))
-    debounceSave(mailToCreate)
+
+    if (debounceTimeout) {
+      clearTimeout(debounceTimeout)
+    }
+
+    const timeoutId = setTimeout(() => {
+      debounceSave(mailToCreate)
+    }, 1500)
+
+    setDebounceTimeout(timeoutId)
   }
 
   const { to, subject, body } = mailToCreate

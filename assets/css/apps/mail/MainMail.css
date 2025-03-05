@@ -9,39 +9,47 @@
 }
 
 .mail-item {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: start;
   padding: 12px;
   border-bottom: 1px solid #e0e0e0;
-  transition: background 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer;
 }
 
-.mail-item:hover {
+.mail-item.read {
   background: #f5f5f5;
 }
 
-label {
-  margin-right: 12px;
+.mail-item:hover {
+  box-shadow: inset 1px 0 0 rgb(218, 220, 224),
+    inset -1px 0 0 rgb(218, 220, 224), 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  z-index: 2;
 }
 
-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin-right: 12px;
-  color: #888;
-  font-size: 16px;
+.mail-item svg:hover {
+  background-color: #f2f2f2;
+  box-shadow: 0 0 0 4px #f2f2f2;
+  border-radius: 50%;
 }
 
-button:hover {
-  color: #ffcc00;
+.mail-sent-content {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  min-width: 0;
+  margin-right: 100px;
 }
 
 .sent-by {
+  flex-shrink: 0;
+  width: 150px;
+  margin-inline-start: 0.7rem;
+  margin-right: 1rem;
   font-weight: bold;
   color: #333;
-  width: 150px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -49,6 +57,7 @@ button:hover {
 
 .mail-title {
   flex-grow: 1;
+  margin-right: 10px;
   font-weight: 500;
   color: #444;
   white-space: nowrap;
@@ -57,9 +66,46 @@ button:hover {
 }
 
 .mail-body {
+  flex-grow: 1;
   color: #777;
-  max-width: 200px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.mail-shortcut {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.mail-actions {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  gap: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.mail-item:hover .mail-actions {
+  opacity: 1;
+}
+
+.mail-actions div {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.mail-actions div:hover {
+  background-color: rgba(32, 33, 36, 0.059);
+}
+
+.mail-actions svg {
+  width: 20px;
+  height: 20px;
 }

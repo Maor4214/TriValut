@@ -2,40 +2,77 @@ import { mailService } from '../services/mail.service.js'
 import { MailHeader } from '../cmps/MailHeader.jsx'
 import { MailSidebar } from '../cmps/MailSidebar.jsx'
 import { MailCompose } from '../cmps/MailCompose.jsx'
-
-const { useEffect, useState } = React
-const { Link, Outlet, useSearchParams, useNavigate } = ReactRouterDOM
+import { MailContext } from '../cmps/MailContext.jsx'
+const { useState, useEffect } = React
+const { Outlet } = ReactRouterDOM
 
 export function MailIndex() {
-  const [notes, setNotes] = useState(null)
   const [isCompose, setIsCompose] = useState(false)
-
+  const [mails, setMails] = useState([])
+  const [unreadCount, setUnreadCount] = useState(0)
   const [isSideBarOpen, setIsSideBarOpen] = useState(false)
+  const [filterBy, setFilterBy] = useState({
+    status: 'inbox',
+    txt: '',
+    isRead: null,
+    isStarred: null,
+    labels: [],
+  })
+
+  useEffect(() => {
+    changeMails()
+  }, [filterBy])
 
   function toggleSideBar() {
-    setIsSideBarOpen((prevIsOpen) => {
-      return !prevIsOpen
+    setIsSideBarOpen((prevIsOpen) => !prevIsOpen)
+  }
+
+  function changeMails() {
+    mailService.query(filterBy).then((mails) => {
+      setMails(mails)
+      setUnreadCount(mails.filter((mail) => !mail.isRead).length)
     })
   }
 
-  function openCompose(ev) {
-    ev.preventDefault()
+  function updateUnreadCount() {
+    mailService.query().then((mails) => {
+      setUnreadCount(mails.filter((mail) => !mail.isRead).length)
+    })
+  }
+
+  function toggleCompose(ev) {
+    if (ev) ev.preventDefault()
     setIsCompose((prevIsCompose) => !prevIsCompose)
   }
 
-  const [searchParams, setSearchParams] = useSearchParams()
-  const [filterBy, setFilterBy] = useState(
-    mailService.getFilterFromSearchParams(searchParams)
-  )
+  function setFilter(newFilterBy) {
+    setFilterBy((prevFilter) => ({ ...prevFilter, ...newFilterBy }))
+  }
+
+  const contextValue = {
+    mails,
+    unreadCount,
+    updateUnreadCount,
+    toggleCompose,
+    isCompose,
+    setFilter,
+    filterBy,
+    setMails,
+  }
 
   return (
-    <section className="mail-container">
-      <MailHeader toggleSideBar={toggleSideBar} />
-      <section className="main-layout">
-        <MailSidebar isSideBarOpen={isSideBarOpen} openCompose={openCompose} />
-        {isCompose && <MailCompose />}
-        <Outlet />
+    <MailContext.Provider value={contextValue}>
+      <section className="mail-container">
+        <MailHeader toggleSideBar={toggleSideBar} unreadCount={unreadCount} />
+        <section className="main-layout">
+          <MailSidebar
+            isSideBarOpen={isSideBarOpen}
+            openCompose={toggleCompose}
+          />
+          {isCompose && <MailCompose toggleCompose={toggleCompose} />}
+          <Outlet />
+        </section>
       </section>
-    </section>
+    </MailContext.Provider>
   )
 }

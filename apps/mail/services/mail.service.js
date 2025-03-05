@@ -20,22 +20,75 @@ export const mailService = {
   getDefaultFilter,
   getFilterFromSearchParams,
   getEmptymail,
+  queryUnread,
 }
 
-function query(filterBy = {}) {
+// function query(filterBy = {}) {
+//   return storageService.query(mail_KEY).then((mails) => {
+//     console.log('mails:', mails)
+//     if (filterBy.mail) {
+//       const regExp = new RegExp(filterBy.vendor, 'i')
+//       mails = mails.filter((mail) => regExp.test(mail.vendor))
+//     }
+//     if (filterBy.minSpeed) {
+//       mails = mails.filter((mail) => mail.speed >= filterBy.minSpeed)
+//     }
+//     return mails
+//   })
+// }
+
+function query(filterBy = {}, folder) {
   return storageService.query(mail_KEY).then((mails) => {
-    // console.log('mails:', mails)
-    if (filterBy.mail) {
-      const regExp = new RegExp(filterBy.vendor, 'i')
-      mails = mails.filter((mail) => regExp.test(mail.vendor))
+    console.log('mails:', mails)
+
+    if (folder === 'inbox') {
+      mails = mails.filter(
+        (mail) =>
+          !mail.isArchive && !mail.isDeleted && !mail.isDraft && !mail.sentAt
+      )
     }
-    if (filterBy.minSpeed) {
-      mails = mails.filter((mail) => mail.speed >= filterBy.minSpeed)
+
+    if (folder === 'starred') {
+      mails = mails.filter((mail) => mail.isStarred)
     }
+
+    if (folder === 'sent') {
+      mails = mails.filter((mail) => mail.sentAt !== null)
+    }
+
+    if (folder === 'draft') {
+      mails = mails.filter((mail) => mail.isDraft)
+    }
+
+    if (folder === 'trash') {
+      mails = mails.filter((mail) => mail.isDeleted)
+    }
+
+    // הוספת סינון טקסט
+    if (filterBy.txt) {
+      const searchTerm = filterBy.txt.toLowerCase()
+      mails = mails.filter(
+        (mail) =>
+          mail.subject.toLowerCase().includes(searchTerm) ||
+          mail.body.toLowerCase().includes(searchTerm) ||
+          mail.from.toLowerCase().includes(searchTerm)
+      )
+    }
+
     return mails
   })
 }
 
+function queryUnread() {
+  return storageService.query(mail_KEY).then((mails) => {
+    console.log('All mails:', mails)
+
+    const unreadMails = mails.filter(
+      (mail) => !mail.isRead || !mail.sentAt || !mail.isDraft
+    )
+    return unreadMails.length
+  })
+}
 function get(mailId) {
   return storageService
     .get(mail_KEY, mailId)
@@ -48,6 +101,7 @@ function remove(mailId) {
 }
 
 function save(mail) {
+  console.log('save')
   if (mail.id) {
     return storageService.put(mail_KEY, mail)
   } else {
@@ -58,17 +112,18 @@ function save(mail) {
 function getEmptymail() {
   return {
     createdAt: Date.now(),
-    subject: ' ',
-    body: ' ',
+    subject: '',
+    body: '',
     isRead: false,
     isStarred: false,
     isArchive: false,
     isDraft: true,
     isDeleted: false,
+    isImportent: false,
     sentAt: null,
     removeAt: null,
     from: loggedinUser.email,
-    to: ' ',
+    to: '',
   }
 }
 
@@ -100,10 +155,25 @@ function _createmails() {
         'Whats up?',
         'Long time no see, lets code sometime',
         false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        'Maoryad@TriValut.com',
+        'Tomera.almog9@TriValut.com'
+      )
+    )
+    mails.push(
+      _createmail(
+        'Whats up?',
+        'Long time no see, lets code sometime',
+        false,
+        true,
         true,
         false,
         false,
-        false,
+        true,
         'Maoryad@TriValut.com',
         'Tomera.almog9@TriValut.com'
       )
@@ -117,6 +187,7 @@ function _createmails() {
         false,
         false,
         true,
+        false,
         'Maoryad@TriValut.com',
         'Tomera.almog9@TriValut.com'
       )
@@ -133,6 +204,7 @@ function _createmail(
   isArchive,
   isDraft,
   isDeleted,
+  isImportent,
   from,
   to
 ) {
@@ -148,6 +220,7 @@ function _createmail(
     isDeleted,
     sentAt: null,
     removeAt: null,
+    isImportent,
     from,
     to,
   }

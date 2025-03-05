@@ -1,29 +1,270 @@
+/* Updated positioning for the sidebar - in normal flow */
 .mail-side-bar {
   list-style-type: none;
   margin: 0;
-  padding: 0;
-
-  height: 100vh;
-  width: 250px;
-  padding: 5px 1em;
-
-  position: sticky;
-  top: 0;
+  padding: 8px 0;
+  width: 256px;
+  /* Remove fixed positioning to keep in normal flow */
+  position: relative;
   align-self: start;
-  transition: 300ms ease-in-out;
-  overflow: hidden;
+  transition: width 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-x: hidden;
+  background-color: #fff;
+  border-right: 1px solid #e1e3e6;
+  /* Height can be auto or set a specific value */
+  min-height: 500px; /* Adjust as needed */
 }
 
+/* The rest of your CSS stays the same */
+.mail-side-bar li {
+  height: 40px;
+  margin: 4px 0;
+  position: relative;
+}
+
+.mail-side-bar li:first-child {
+  height: 56px;
+}
+
+/* Positioning the links in a more stable way */
 .mail-side-bar li a {
   display: flex;
   align-items: center;
+  text-decoration: none;
+  color: #202124;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 16px;
+  height: 36px;
+  border-radius: 0 16px 16px 0;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+/* Fixed compose button */
+.mail-side-bar .compose-btn {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 16px;
+  height: 48px;
+  background-color: #c2e7ff;
+  color: #001d35;
+  border-radius: 16px;
+  border: none;
+  font-weight: 500;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3);
+  cursor: pointer;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Common icon styles */
 .mail-side-bar svg {
   flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  fill: #5f6368;
 }
 
+.mail-side-bar li a svg {
+  margin-right: 18px;
+}
+
+.mail-side-bar .compose-btn svg {
+  fill: #001d35;
+}
+
+/* Common text styles */
+.mail-side-bar li a span,
+.mail-side-bar .compose-btn span {
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover and active states */
+.mail-side-bar li a:hover {
+  background-color: rgba(32, 33, 36, 0.059);
+}
+
+.mail-side-bar li a.active {
+  background-color: #d3e3fd;
+}
+
+.mail-side-bar li a.active svg {
+  fill: black;
+}
+
+.mail-side-bar .compose-btn:hover {
+  background-color: #b4d7f5;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.4);
+}
+
+/* CLOSED STATE */
 .mail-side-bar.close {
-  padding: 5px;
-  width: 18px;
+  width: 64px;
+  transition: width 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover to expand */
+.mail-side-bar.close:hover {
+  width: 256px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow when expanded */
+  position: absolute; /* Only fixed on hover */
+  z-index: 100; /* Ensure it's above other content when expanded */
+}
+
+/* Regular items in closed state - centered positioning */
+.mail-side-bar.close li a {
+  margin: 0;
+  left: 50%;
+  right: auto;
+  width: 40px;
+  height: 40px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Restore original styling on hover */
+.mail-side-bar.close:hover li a {
+  margin: 0 16px;
+  left: 0;
+  right: 0;
+  width: auto;
+  transform: none;
+  border-radius: 0 16px 16px 0;
+  justify-content: flex-start;
+}
+
+/* Compose button in closed state - centered positioning */
+.mail-side-bar.close .compose-btn {
+  margin: 0;
+  left: 50%;
+  right: auto;
+  width: 48px;
+  height: 48px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Restore original styling on hover */
+.mail-side-bar.close:hover .compose-btn {
+  margin: 0 16px;
+  left: 0;
+  right: 0;
+  width: auto;
+  transform: none;
+  border-radius: 16px;
+  justify-content: flex-start;
+  padding: 0 16px;
+}
+
+/* Center icons in closed state */
+.mail-side-bar.close li a svg,
+.mail-side-bar.close .compose-btn svg {
+  margin-right: 0;
+  transition: margin 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Restore icon spacing on hover */
+.mail-side-bar.close:hover li a svg {
+  margin-right: 18px;
+}
+
+.mail-side-bar.close:hover .compose-btn svg {
+  margin-right: 12px; /* Match the gap value from compose-btn */
+}
+
+/* Hide text in closed state */
+.mail-side-bar.close li a span,
+.mail-side-bar.close .compose-btn span {
+  opacity: 0;
+  width: 0;
+  display: none;
+  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Show text on hover */
+.mail-side-bar.close:hover li a span,
+.mail-side-bar.close:hover .compose-btn span {
+  opacity: 1;
+  width: auto;
+  display: inline;
+}
+
+/* Tooltips only appear when not hovering the entire sidebar */
+.mail-side-bar.close:not(:hover) li a:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 52px;
+  background: #4e5058;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+/* Header styles */
+.mail-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background-color: #a3daef;
+  z-index: 200; /* Higher than sidebar */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+/* Gmail logo and user greeting area */
+.logo-user-area {
+  position: fixed;
+  top: 70px; /* Right below the header */
+  left: 0;
+  right: 0;
+  height: 60px; /* Height for the logo area */
+  background-color: #a3daef;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Main content container */
+.mail-content {
+  padding: 20px;
+  transition: margin-left 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Container for sidebar and content */
+.main-container {
+  display: flex;
+  margin-top: 130px; /* Space for header + logo area */
+}
+
+/* Gmail logo in header */
+.mail-header .logo-container {
+  display: flex;
+  align-items: center;
 }
