@@ -184,7 +184,7 @@ export function MailInbox({ filter }) {
               <div
                 onClick={(ev) => {
                   ev.stopPropagation()
-                  // פונקציה לארכיב
+                  // Function to move to archive
                 }}
               >
                 <svg
@@ -201,7 +201,7 @@ export function MailInbox({ filter }) {
               <div
                 onClick={(ev) => {
                   ev.stopPropagation()
-                  // פונקציה למחיקה
+                  // Function to move to trash
                 }}
               >
                 <svg

@@ -39,14 +39,12 @@ export function AppHeader() {
               </filter>
             </defs>
 
-            {/* Main Hexagon */}
             <path
               d="M150 50 L250 100 L250 200 L150 250 L50 200 L50 100 Z"
               fill="url(#hexGradient)"
               filter="url(#hexShadow)"
             />
 
-            {/* Inner Hexagons */}
             <path
               d="M150 75 L225 115 L225 185 L150 225 L75 185 L75 115 Z"
               fill="#ffffff"
@@ -58,7 +56,6 @@ export function AppHeader() {
               opacity="0.3"
             />
 
-            {/* White Center */}
             <path
               d="M150 120 L180 135 L180 165 L150 180 L120 165 L120 135 Z"
               fill="#ffffff"

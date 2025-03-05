@@ -9,7 +9,6 @@ export function MailHeader({ toggleSideBar, unreadCount }) {
     const value = ev.target.value
     setSearchTerm(value)
 
-    // פשוט קורא לפונקציה setFilter מהקונטקסט
     setFilter({ txt: value })
   }
 

@@ -1,6 +1,5 @@
-/* Google Keep-like Note Card */
 .text-note {
-  width: 250px; /* Responsive width */
+  width: 250px;
   min-height: 80px;
   padding: 12px;
   border-radius: 8px;
@@ -30,6 +29,6 @@
 /* Responsive Layout */
 @media (max-width: 900px) {
   .text-note {
-    width: 100%; /* Full width for small screens */
+    width: 100%;
   }
 }

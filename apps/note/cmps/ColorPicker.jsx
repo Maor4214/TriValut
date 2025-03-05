@@ -34,9 +34,7 @@ export function ColorPicker({
         setNoteToEdit(updatedNote)
       })
       .catch((err) => console.log('failed to update color:', err))
-    onSetNoteStyle({ backgroundColor: color }) // update UI now
-
-    //save to DB
+    onSetNoteStyle({ backgroundColor: color })
 
     console.log(backgroundColor)
     console.log('trying to set color')

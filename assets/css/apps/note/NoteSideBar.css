@@ -21,9 +21,9 @@
 }
 
 .note-sidebar svg {
-  width: 24px; /* Ensure consistent size */
-  height: 24px; /* Ensure consistent size */
-  flex-shrink: 0; /* Prevent shrinking */
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
 }
 
 .note-sidebar button {
@@ -59,7 +59,7 @@
   background-color: var(--gray2); */
 }
 .note-sidebar a {
-  display: block; /* Ensures link covers full button area */
+  display: block;
   /* width: 100%; */
 }
 

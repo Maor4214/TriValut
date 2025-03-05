@@ -27,8 +27,8 @@
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.426);
   flex-grow: 1;
   background-color: #f4f7f8;
-  max-height: 80vh; /* Limit the form's height */
-  overflow-y: auto; /* Enable scrolling within the form */
+  max-height: 80vh;
+  overflow-y: auto;
   overflow-x: hidden;
   box-sizing: border-box;
   scrollbar-width: thin;
