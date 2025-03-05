@@ -125,7 +125,6 @@ export function MailInfo() {
       </nav>
       <div className="mail-header">
         <h2>{mail.subject}</h2>
-        {/* {mail.isImportant && />} */}
       </div>
 
       <div className="mail-meta">

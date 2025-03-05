@@ -8,12 +8,6 @@ export function Home() {
         <h1 className="main-title">TriVault</h1>
         <h2 className="tagline">Connect, Organize, Remember – All in One</h2>
         <p className="subtitle">Your Digital Vault for Life</p>
-        <button
-          onClick={() => showSuccessMsg('Welcome to TriVault!')}
-          className="get-started-btn"
-        >
-          Get Started
-        </button>
       </div>
 
       <div className="features-container">

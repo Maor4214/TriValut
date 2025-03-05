@@ -1,0 +1,254 @@
+.container-about {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: #202124;
+  height: auto;
+  overflow: visible;
+}
+
+.scroll-about {
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.about-header {
+  text-align: center;
+  padding: 2rem 1rem 3rem;
+  margin-bottom: 3rem;
+  background: linear-gradient(
+    to right,
+    rgba(66, 133, 244, 0.1),
+    rgba(219, 68, 55, 0.1)
+  );
+  border-radius: 12px;
+}
+
+.about-header h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: #4285f4;
+  font-weight: 700;
+}
+
+.about-intro {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #5f6368;
+  line-height: 1.6;
+}
+
+.container-about h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  color: #202124;
+  font-weight: 500;
+}
+
+.applications-section {
+  margin-bottom: 4rem;
+}
+
+.app-card {
+  display: flex;
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  align-items: flex-start;
+}
+
+.app-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.mail-app {
+  border-left: 4px solid #ea4335;
+}
+
+.notes-app {
+  border-left: 4px solid #fbbc05;
+}
+
+.books-app {
+  border-left: 4px solid #34a853;
+}
+
+.app-icon {
+  background-color: #f1f3f4;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2rem;
+  flex-shrink: 0;
+}
+
+.mail-app .app-icon {
+  color: #ea4335;
+}
+
+.notes-app .app-icon {
+  color: #fbbc05;
+}
+
+.books-app .app-icon {
+  color: #34a853;
+}
+
+.app-icon i {
+  font-size: 2.5rem;
+}
+
+.app-details {
+  flex: 1;
+}
+
+.app-details h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  color: #202124;
+}
+
+.app-details p {
+  color: #5f6368;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  color: #5f6368;
+}
+
+.feature-list i {
+  color: #4285f4;
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.team-section {
+  margin-bottom: 4rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.team-member {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.member-avatar {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.team-member h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.member-role {
+  color: #4285f4;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.member-bio {
+  color: #5f6368;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 350px;
+}
+
+.mission-section {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.mission-section p {
+  color: #5f6368;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .about-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .app-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .app-icon {
+    margin: 0 auto 1.5rem;
+  }
+
+  .feature-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-header h1 {
+    font-size: 2rem;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -13,18 +13,18 @@
     
 
 
-     /* 🎨 Primary Colors */
+    
     --keep-filter-bg: #f1f3f4;
     --keep-filter-bg: #f1f3f4;
-    --keep-bg: #fff; /* Light yellow background */
+    --keep-bg: #fff;
 
-    --keep-header-bg: #f1f3f4; /* Light grayish top bar */
-    --keep-text: #202124; /* Default text color */
-    --keep-secondary-text: #5152533a; /* Muted text */
-    --keep-border: #dadce0; /* Border color */
-    --keep-sidebar-hover: #f2f4f7; /* Border color */
+    --keep-header-bg: #f1f3f4;
+    --keep-text: #202124;
+    --keep-secondary-text: #5152533a; 
+    --keep-border: #dadce0; 
+    --keep-sidebar-hover: #f2f4f7; 
 
-    /* 🖌 Note Colors */
+   
     --keep-note-white: #ffffff;
     --keep-note-red: #f28b82;
     --keep-note-orange: #fbbc04;
@@ -38,12 +38,11 @@
     --keep-note-brown: #e6c9a8;
     --keep-note-gray: #e8eaed;
 
-    /* ✨ Font Styles */
+ 
     --keep-font-primary: 'Roboto', sans-serif;
     --keep-font-secondary: 'Noto Sans', sans-serif;
     --keep-font-size: 16px;
 
-    /* 🔳 Box Shadows (Google Keep Style) */
     --keep-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     --keep-hover-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
