@@ -1,4 +1,9 @@
-export function NoteOptions({ isOptionsOpen }) {
+export function NoteOptions({ isOptionsOpen, note, onRemoveNote }) {
+  function handleOnRemoveNote(ev) {
+    ev.stopPropagation()
+    onRemoveNote(note.id)
+  }
+
   return (
     <div
       className={
@@ -8,7 +13,7 @@ export function NoteOptions({ isOptionsOpen }) {
       }
     >
       <ul className="clean-list">
-        <li>Delete note</li>
+        <li onClick={(ev) => handleOnRemoveNote(ev, note.id)}>Delete note</li>
         <li>Add label</li>
         <li>Add drawing</li>
         <li>Make a copy</li>

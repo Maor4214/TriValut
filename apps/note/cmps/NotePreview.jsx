@@ -127,7 +127,11 @@ export function NotePreview({ note, onNoteClick, onRemoveNote, onTogglePin }) {
           </svg>
         </button>
       </div>
-      <NoteOptions isOptionsOpen={isOptionsOpen}></NoteOptions>
+      <NoteOptions
+        isOptionsOpen={isOptionsOpen}
+        note={note}
+        onRemoveNote={onRemoveNote}
+      ></NoteOptions>
     </section>
   )
 }
