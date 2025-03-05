@@ -12,10 +12,6 @@ import { NoteArchive } from './apps/note/pages/NoteArchive.jsx'
 import { NoteMemos } from './apps/note/pages/NoteMemos.jsx'
 import { NoteTrash } from './apps/note/pages/NoteTrash.jsx'
 import { MailInbox } from './apps/mail/cmps/MailInbox.jsx'
-import { MailStarred } from './apps/mail/cmps/MailStarred.jsx'
-import { MailSent } from './apps/mail/cmps/MailSent.jsx'
-import { MailDraft } from './apps/mail/cmps/MailDraft.jsx'
-import { MailTrash } from './apps/mail/cmps/MailTrash.jsx'
 import { MailInfo } from './apps/mail/cmps/MailInfo.jsx'
 
 export function RootCmp() {
@@ -26,13 +22,26 @@ export function RootCmp() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          {/* <Route path="/books" element={<BookIndex />} /> */}
           <Route path="/mail" element={<MailIndex />}>
             <Route index element={<Navigate to="inbox" replace />} />
-            <Route path="/mail/inbox" element={<MailInbox />} />
-            <Route path="/mail/starred" element={<MailStarred />} />
-            <Route path="/mail/sent" element={<MailSent />} />
-            <Route path="/mail/draft" element={<MailDraft />} />
-            <Route path="/mail/trash" element={<MailTrash />} />
+            <Route
+              path="/mail/inbox"
+              element={<MailInbox filter={'inbox'} />}
+            />
+            <Route
+              path="/mail/starred"
+              element={<MailInbox filter={'starred'} />}
+            />
+            <Route path="/mail/sent" element={<MailInbox filter={'sent'} />} />
+            <Route
+              path="/mail/draft"
+              element={<MailInbox filter={'draft'} />}
+            />
+            <Route
+              path="/mail/trash"
+              element={<MailInbox filter={'trash'} />}
+            />
             <Route path="/mail/info/:mailId" element={<MailInfo />} />
           </Route>
           <Route path="/notes" element={<NoteIndex />}>
