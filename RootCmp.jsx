@@ -13,6 +13,7 @@ import { NoteMemos } from './apps/note/pages/NoteMemos.jsx'
 import { NoteTrash } from './apps/note/pages/NoteTrash.jsx'
 import { MailInbox } from './apps/mail/cmps/MailInbox.jsx'
 import { MailInfo } from './apps/mail/cmps/MailInfo.jsx'
+import { BookIdx } from './apps/books/pages/BookIdx.jsx'
 
 export function RootCmp() {
   return (
@@ -22,7 +23,7 @@ export function RootCmp() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          {/* <Route path="/books" element={<BookIndex />} /> */}
+          <Route path="/books" element={<BookIdx />} />
           <Route path="/mail" element={<MailIndex />}>
             <Route index element={<Navigate to="inbox" replace />} />
             <Route
