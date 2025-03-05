@@ -1,15 +1,15 @@
 const { createContext, useContext } = React
 
-const NoteContext = createContext();
+const NoteContext = createContext()
 
-export function NoteProvider({ children, loadNotes }) {
+export function NoteProvider({ children, loadNotes, onRemoveNote }) {
   return (
-    <NoteContext.Provider value={{ loadNotes }}>
+    <NoteContext.Provider value={{ loadNotes, onRemoveNote }}>
       {children}
     </NoteContext.Provider>
-  );
+  )
 }
 
 export function useNotes() {
-  return useContext(NoteContext);
+  return useContext(NoteContext)
 }

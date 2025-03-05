@@ -1,6 +1,10 @@
 import { ImageNote } from './noteTypes/ImageNote.jsx'
 import { VideoNote } from './noteTypes/VideoNote.jsx'
 import { ColorPicker } from './ColorPicker.jsx'
+import { NoteOptions } from './NoteOptions.jsx'
+import { noteService } from '../services/note.service.js'
+import { useNotes } from '../context/NoteContext.jsx'
+
 const { useState, useEffect } = React
 
 export function LongNoteForm({
@@ -16,6 +20,8 @@ export function LongNoteForm({
     console.log('cmp loaded - here is note to edit:', noteToEdit)
   })
   const [isColorPickerOpen, setIsColorPickerOpen] = useState(false)
+  const [isOptionsOpen, setIsOptionsOpen] = useState(false)
+  const { onRemoveNote } = useNotes()
 
   const [noteStyle, setNoteStyle] = useState({
     backgroundColor: '#fff',
@@ -29,6 +35,19 @@ export function LongNoteForm({
     }
   }, [noteToEdit])
 
+  function duplicateNote(note) {
+    const duplicatedNote = {
+      ...note,
+      id: null,
+    }
+    console.log(duplicatedNote)
+    return duplicatedNote
+  }
+
+  function handleToggleOptions(ev) {
+    console.log('trying to toggle options')
+    setIsOptionsOpen((prevOptions) => !prevOptions)
+  }
   function onSetNoteStyle(style) {
     setNoteStyle({ backgroundColor: style.backgroundColor })
   }
@@ -144,7 +163,7 @@ export function LongNoteForm({
                 <path d="m480-240 160-160-56-56-64 64v-168h-80v168l-64-64-56 56 160 160ZM200-640v440h560v-440H200Zm0 520q-33 0-56.5-23.5T120-200v-499q0-14 4.5-27t13.5-24l50-61q11-14 27.5-21.5T250-840h460q18 0 34.5 7.5T772-811l50 61q9 11 13.5 24t4.5 27v499q0 33-23.5 56.5T760-120H200Zm16-600h528l-34-40H250l-34 40Zm264 300Z" />
               </svg>
             </button>{' '}
-            <button className="clean-btn">
+            <button className="clean-btn" onClick={() => handleToggleOptions()}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="24px"
@@ -191,6 +210,13 @@ export function LongNoteForm({
           </div>
         </div>
       </form>
+      <NoteOptions
+        isOptionsOpen={isOptionsOpen}
+        note={noteToEdit}
+        onRemoveNote={onRemoveNote}
+        duplicateNote={duplicateNote}
+        noteService={noteService}
+      ></NoteOptions>
     </React.Fragment>
   )
 }

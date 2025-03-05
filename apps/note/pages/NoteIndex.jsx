@@ -72,7 +72,7 @@ export function NoteIndex() {
     })
   }
   return (
-    <NoteProvider loadNotes={loadNotes}>
+    <NoteProvider loadNotes={loadNotes} onRemoveNote={onRemoveNote}>
       <section className="note-app-container">
         <NoteHeader
           toggleSideBar={toggleSideBar}

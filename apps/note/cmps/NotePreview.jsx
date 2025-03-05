@@ -4,6 +4,7 @@ import { VideoNote } from './noteTypes/VideoNote.jsx'
 import { ImageNote } from './noteTypes/ImageNote.jsx'
 import { noteService } from '../services/note.service.js'
 import { NoteOptions } from './NoteOptions.jsx'
+import { ColorPicker } from './ColorPicker.jsx'
 const { useState, useEffect } = React
 
 export function NotePreview({ note, onNoteClick, onRemoveNote, onTogglePin }) {
@@ -12,6 +13,15 @@ export function NotePreview({ note, onNoteClick, onRemoveNote, onTogglePin }) {
   function handleTogglePinned(ev) {
     ev.stopPropagation()
     onTogglePin(id, !isPinned)
+  }
+
+  function duplicateNote(note) {
+    const duplicatedNote = {
+      ...note,
+      id: null,
+    }
+    console.log(duplicatedNote)
+    return duplicatedNote
   }
 
   function onHandleRemoveNote(ev, id) {
@@ -127,10 +137,13 @@ export function NotePreview({ note, onNoteClick, onRemoveNote, onTogglePin }) {
           </svg>
         </button>
       </div>
+
       <NoteOptions
         isOptionsOpen={isOptionsOpen}
         note={note}
         onRemoveNote={onRemoveNote}
+        duplicateNote={duplicateNote}
+        noteService={noteService}
       ></NoteOptions>
     </section>
   )
