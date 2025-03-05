@@ -2,6 +2,11 @@ body {
   margin: 0;
   font-family: Roboto, Arial, sans-serif;
   font-size: 15px;
+  overflow: hidden;
+}
+
+.root-cmp {
+  height: 100vh;
 }
 
 h1,
