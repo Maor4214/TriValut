@@ -3,8 +3,8 @@
 @import './basics/helpers.css';
 @import './basics/layout.css';
 
-@import './cmps/test.css';
-@import './cmps/test2.css';
+@import './cmps/Home.css';
+@import './cmps/About.css';
 @import './cmps/UserMsg.css';
 @import './cmps/AppHeader.css';
 
