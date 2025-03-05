@@ -80,8 +80,8 @@
   /* top: 25vh; */
   position: fixed; /* Changed from absolute to fixed */
   top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Perfect centering */
+  left: 25%; /* Center horizontally */
+  transform: translate(-50%, -50%);
   max-height: 90vh; /* Limit maximum height */
   overflow-y: auto; /* Enable scrolling if content is too long */
 }
