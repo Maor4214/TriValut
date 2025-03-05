@@ -7,6 +7,7 @@ body {
 
 .root-cmp {
   height: 100vh;
+  overflow-y: auto;
 }
 
 h1,
@@ -29,12 +30,10 @@ img {
   object-fit: cover;
 }
 
-/* Disable interactions on background notes when dialog is open */
 .dialog-open .note-preview {
   pointer-events: none;
 }
 
-/* Allow interactions inside the dialog */
 .note-dialog {
   pointer-events: auto;
   background: white;

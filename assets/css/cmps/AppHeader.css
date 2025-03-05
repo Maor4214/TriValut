@@ -1,19 +1,113 @@
 .app-header {
   display: flex;
   justify-content: space-between;
-  padding: 1em;
-  background: var(--bg1);
+  align-items: center;
+  padding: 0.8em 1.2em;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  height: 64px;
   position: sticky;
   top: 0;
-  width: 100%;
+  z-index: 100;
 }
 
-nav a {
-  margin: 0.5em;
+.app-header a {
+  text-decoration: none;
+  color: #202124;
+  font-family: 'Product Sans', Arial, sans-serif;
 }
 
-nav a.active {
-  color: var(--color1);
-  font-weight: bold;
-  text-decoration: overline;
+.app-header h3 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+}
+
+.app-header nav {
+  display: flex;
+  align-items: center;
+}
+
+.app-header nav a {
+  margin: 0 0.8em;
+  padding: 0.5em 0.6em;
+  font-size: 14px;
+  color: #5f6368;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+  position: relative;
+}
+
+.app-header nav a:hover {
+  background-color: #f1f3f4;
+}
+
+.app-header nav a.active {
+  color: #4285f4;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.app-header nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #4285f4;
+  border-radius: 3px 3px 0 0;
+}
+
+/* סגנונות מעודכנים ללוגו בכותרת */
+.header-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 14px;
+  height: 100%;
+}
+
+.logo-container svg {
+  width: 55px; /* הגדלה משמעותית של הלוגו */
+  height: 55px; /* הגדלה משמעותית של הלוגו */
+}
+
+.header-text h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: #1e40af;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .app-header {
+    padding: 0.6em 1em;
+  }
+
+  .app-header nav a {
+    margin: 0 0.3em;
+    padding: 0.5em 0.4em;
+    font-size: 13px;
+  }
+
+  .logo-container svg {
+    width: 45px;
+    height: 45px;
+  }
+
+  .header-text h3 {
+    font-size: 18px;
+  }
 }
