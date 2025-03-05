@@ -3,6 +3,7 @@ import { LongNoteForm } from './LongNoteForm.jsx'
 import { noteService } from '../services/note.service.js'
 import { showSuccessMsg } from '../../../services/event-bus.service.js'
 import { useNotes } from '../context/NoteContext.jsx'
+import { NoteTypeForm } from './NoteTypeForm.jsx'
 const { useNavigate, useParams } = ReactRouterDOM
 
 const { useEffect, useState } = React
@@ -69,12 +70,12 @@ export function NewNoteCmp() {
       )}
 
       {isExpandForm && (
-        <LongNoteForm
+        <NoteTypeForm
           handleChange={handleChange}
           onSaveNote={onSaveNote}
           setIsExpandForm={setIsExpandForm}
           noteToEdit={noteToCreate}
-        />
+        ></NoteTypeForm>
       )}
     </section>
   )

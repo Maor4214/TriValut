@@ -28,6 +28,7 @@ export function LongNoteForm({
   })
 
   useEffect(() => {
+    console.log('note to edit:,', noteToEdit)
     if (noteToEdit && noteToEdit.style && noteToEdit.style.backgroundColor) {
       setNoteStyle({
         backgroundColor: noteToEdit.style.backgroundColor,
