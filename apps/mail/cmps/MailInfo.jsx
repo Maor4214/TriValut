@@ -130,7 +130,9 @@ export function MailInfo() {
       <div className="mail-meta">
         <div>
           <div className="mail-from">{mail.from}</div>
-          <div className="mail-to">to me</div>
+          <div className="mail-to">
+            {mail.sentAt ? `to ${mail.to}` : 'to me'}
+          </div>
         </div>
         <div className="mail-date">{mail.createdAt}</div>
       </div>

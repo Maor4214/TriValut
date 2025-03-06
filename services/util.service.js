@@ -9,6 +9,7 @@ export const utilService = {
   loadFromStorage,
   saveToStorage,
   debounce,
+  getFullDate,
 }
 
 function saveToStorage(key, val) {
@@ -92,6 +93,17 @@ function getRandomColor() {
     color += letters[Math.floor(Math.random() * 16)]
   }
   return color
+}
+
+function getFullDate(locale = 'en-US') {
+  const date = new Date(Date.now())
+
+  const dayName = getDayName(date, locale)
+  const day = date.getDate()
+  const monthName = getMonthName(date)
+  const year = date.getFullYear()
+
+  return `${dayName}, ${monthName} ${day}, ${year}`
 }
 
 function getDayName(date, locale) {

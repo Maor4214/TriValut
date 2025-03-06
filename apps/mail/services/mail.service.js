@@ -664,7 +664,7 @@ function _createmail(
 ) {
   const mail = {
     id: utilService.makeId(),
-    createdAt: Date.now(),
+    createdAt: utilService.getFullDate(),
     subject,
     body,
     isRead,
