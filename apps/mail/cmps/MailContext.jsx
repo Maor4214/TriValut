@@ -34,58 +34,8 @@ export function MailProvider({ children }) {
     })
   }
 
-  function toggleCompose(ev) {
-    if (ev) ev.preventDefault()
-    setIsCompose((prevIsCompose) => !prevIsCompose)
-  }
-
-  function toggleSideBar() {
-    setIsSideBarOpen((prevIsOpen) => !prevIsOpen)
-  }
-
-  function updateMail(updatedMail) {
-    return mailService.save(updatedMail).then(() => {
-      setMails((prevMails) =>
-        prevMails.map((mail) =>
-          mail.id === updatedMail.id ? updatedMail : mail
-        )
-      )
-      calculateUnreadCount()
-      return updatedMail
-    })
-  }
-
-  function removeMail(mailId) {
-    return mailService.remove(mailId).then(() => {
-      setMails((prevMails) => prevMails.filter((mail) => mail.id !== mailId))
-      calculateUnreadCount()
-    })
-  }
-
   function setFilter(newFilterBy) {
     setFilterBy((prevFilter) => ({ ...prevFilter, ...newFilterBy }))
-  }
-
-  function markMailAs(mailId, property, value) {
-    return mailService.get(mailId).then((mail) => {
-      const updatedMail = { ...mail, [property]: value }
-      return updateMail(updatedMail)
-    })
-  }
-
-  function markMailAsRead(mailId) {
-    return markMailAs(mailId, 'isRead', true)
-  }
-
-  function markMailAsUnread(mailId) {
-    return markMailAs(mailId, 'isRead', false)
-  }
-
-  function toggleStarred(mailId) {
-    return mailService.get(mailId).then((mail) => {
-      const updatedMail = { ...mail, isStarred: !mail.isStarred }
-      return updateMail(updatedMail)
-    })
   }
 
   return (

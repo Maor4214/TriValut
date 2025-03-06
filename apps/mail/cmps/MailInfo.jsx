@@ -123,7 +123,7 @@ export function MailInfo() {
           <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
         </svg>
       </nav>
-      <div className="mail-header">
+      <div className="mail-info-header">
         <h2>{mail.subject}</h2>
       </div>
 

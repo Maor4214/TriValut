@@ -1,7 +1,10 @@
 import { mailService } from '../services/mail.service.js'
 import { MailContext } from '../cmps/MailContext.jsx'
 import { noteService } from '../../note/services/note.service.js'
-import { showSuccessMsg } from '../../../services/event-bus.service.js'
+import {
+  showSuccessMsg,
+  showErrorMsg,
+} from '../../../services/event-bus.service.js'
 
 const { useEffect, useState, useContext } = React
 const { useSearchParams, useNavigate } = ReactRouterDOM
@@ -86,7 +89,8 @@ export function MailInbox({ filter }) {
   const {
     filterBy: contextFilterBy,
     setMails: setContextMails,
-    calculateUnreadCount,
+    loadMails: contextLoadMails,
+    updateUnreadCount, // הוספנו את updateUnreadCount מהקונטקסט
   } = useContext(MailContext)
 
   const [mails, setMails] = useState(null)
@@ -107,11 +111,10 @@ export function MailInbox({ filter }) {
     mailService.query(contextFilterBy, filter).then((mailList) => {
       setMails(mailList)
       setContextMails(mailList)
-      console.log('mail', mailList)
     })
   }
 
-  function toggleStarredStatus(mailObj, statusType) {
+  function toggleStatus(mailObj, statusType) {
     const statusKey = `is${statusType}`
 
     const updatedMail = {
@@ -120,11 +123,12 @@ export function MailInbox({ filter }) {
     }
 
     mailService.save(updatedMail).then(() => {
-      setMails((prevMails) =>
-        prevMails.map((mail) =>
-          mail.id === updatedMail.id ? updatedMail : mail
-        )
-      )
+      loadMails()
+      updateUnreadCount() // קריאה לפונקציה מהקונטקסט
+
+      if (contextLoadMails) {
+        contextLoadMails()
+      }
     })
   }
 
@@ -140,7 +144,11 @@ export function MailInbox({ filter }) {
         }
         setMail(updatedMail)
         mailService.save(updatedMail).then(() => {
-          calculateUnreadCount()
+          if (contextLoadMails) {
+            contextLoadMails()
+          }
+          loadMails()
+          updateUnreadCount() // עדכון מספר ההודעות שלא נקראו
           navigate(`/mail/info/${id}`)
         })
       }
@@ -164,6 +172,46 @@ export function MailInbox({ filter }) {
     })
   }
 
+  function onDeleteMail(id) {
+    mailService
+      .get(id)
+      .then((mail) => {
+        if (mail.isDeleted) {
+          return mailService.remove(id).then(() => {
+            loadMails()
+
+            if (contextLoadMails) {
+              contextLoadMails()
+            }
+
+            updateUnreadCount() // עדכון מספר ההודעות שלא נקראו
+            showSuccessMsg('Mail permanently deleted')
+          })
+        } else {
+          const updatedMail = {
+            ...mail,
+            isDeleted: true,
+            deletedAt: Date.now(),
+          }
+
+          return mailService.save(updatedMail).then(() => {
+            loadMails()
+
+            if (contextLoadMails) {
+              contextLoadMails()
+            }
+
+            updateUnreadCount() // עדכון מספר ההודעות שלא נקראו
+            showSuccessMsg('Mail moved to trash')
+          })
+        }
+      })
+      .catch((err) => {
+        console.error('Error processing mail deletion:', err)
+        showErrorMsg('Failed to delete mail')
+      })
+  }
+
   if (!mails) return 'Loading...'
   return (
     <div className="main-mail-layout">
@@ -179,7 +227,7 @@ export function MailInbox({ filter }) {
                 title={mail.isStarred ? 'Starred' : 'Not starred'}
                 onClick={(ev) => {
                   ev.stopPropagation()
-                  toggleStarredStatus(mail, 'Starred')
+                  toggleStatus(mail, 'Starred')
                 }}
               >
                 {mail.isStarred ? markStar : unMarkStar}
@@ -187,7 +235,7 @@ export function MailInbox({ filter }) {
               <div
                 onClick={(ev) => {
                   ev.stopPropagation()
-                  toggleStarredStatus(mail, 'Importent')
+                  toggleStatus(mail, 'Importent')
                 }}
               >
                 {mail.isImportent ? markImportent : unMarkImportent}
@@ -220,10 +268,10 @@ export function MailInbox({ filter }) {
               </div>
 
               <div
+                title="Delete"
                 onClick={(ev) => {
-                  title = 'Delete'
                   ev.stopPropagation()
-                  // Function to move to trash
+                  onDeleteMail(mail.id)
                 }}
               >
                 <svg
@@ -240,7 +288,7 @@ export function MailInbox({ filter }) {
                 title={mail.isRead ? 'Mark as unread' : 'Mark as read'}
                 onClick={(ev) => {
                   ev.stopPropagation()
-                  toggleStarredStatus(mail, 'Read')
+                  toggleStatus(mail, 'Read')
                 }}
               >
                 {mail.isRead ? markAsRead : unMarkAsRead}
