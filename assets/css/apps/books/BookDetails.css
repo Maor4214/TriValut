@@ -1,0 +1,111 @@
+.book-details {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border-top: 4px solid #4285f4;
+}
+
+.book-details .back-btn {
+  display: inline-block;
+  background-color: transparent;
+  color: #5f6368;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: color 0.3s ease;
+}
+
+.book-details .back-btn:hover {
+  color: #202124;
+}
+
+.book-details .book-header {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.book-details .book-thumbnail {
+  width: 200px;
+  height: auto;
+  margin-right: 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.book-details .book-info h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #202124;
+}
+
+.book-details .book-info h2 {
+  font-size: 1.5rem;
+  color: #5f6368;
+  margin-bottom: 1rem;
+}
+
+.book-details .book-authors,
+.book-details .book-category,
+.book-details .book-year {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #202124;
+}
+
+.book-details .book-pagecount,
+.book-details .book-language,
+.book-details .book-price {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #202124;
+}
+
+.book-details .book-pagecount-desc {
+  color: #5f6368;
+}
+
+.book-details .book-price span {
+  font-weight: bold;
+}
+
+.book-details .book-price .red {
+  color: #ea4335;
+}
+
+.book-details .book-price .green {
+  color: #34a853;
+}
+
+.book-details .on-sale {
+  display: inline-block;
+  background-color: #fbbc05;
+  color: #202124;
+  padding: 0.25rem 0.5rem;
+  margin-left: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.book-details .book-description {
+  line-height: 1.6;
+  color: #202124;
+}
+
+@media screen and (max-width: 768px) {
+  .book-details .book-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .book-details .book-thumbnail {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}

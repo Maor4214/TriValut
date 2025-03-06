@@ -8,7 +8,6 @@ export function BookList({ books, onSelectedBookId, onRemoveBook }) {
     <div className="scroll-booklist">
       <section className="book-list">
         {books.map((book) => {
-          // console.log("book ID:", book.id);
           return (
             <div className="book-card" key={book.id}>
               <BookPreview book={book}></BookPreview>

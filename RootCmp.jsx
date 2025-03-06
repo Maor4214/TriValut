@@ -14,6 +14,8 @@ import { NoteTrash } from './apps/note/pages/NoteTrash.jsx'
 import { MailInbox } from './apps/mail/cmps/MailInbox.jsx'
 import { MailInfo } from './apps/mail/cmps/MailInfo.jsx'
 import { BookIdx } from './apps/books/pages/BookIdx.jsx'
+import { BookEdit } from './apps/books/pages/BookEdit.jsx'
+import { BookDetails } from './apps/books/pages/BookDetails.jsx'
 
 export function RootCmp() {
   return (
@@ -51,6 +53,9 @@ export function RootCmp() {
             <Route path="/notes/:content" element={<NoteArchive />} />
             <Route path="/notes/:content" element={<NoteTrash />} />
           </Route>
+          <Route path="/books/edit/" element={<BookEdit />} />
+          <Route path="/books/edit/:bookId" element={<BookEdit />} />
+          <Route path="/books/:bookId" element={<BookDetails />} />
         </Routes>
         <UserMsg />
       </section>

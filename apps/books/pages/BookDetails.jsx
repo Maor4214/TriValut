@@ -1,10 +1,12 @@
 import { bookService } from '../services/books.service.js'
-import { LongTxt } from '../cmps/LongTxt.jsx'
+import { LongTxt } from '../cmps/BookLongText.jsx'
 const { useState, useEffect } = React
 const { useParams, Link } = ReactRouterDOM
+
 export function BookDetails() {
   const [book, setBook] = useState(null)
   const { bookId } = useParams()
+
   useEffect(() => {
     loadBook()
   }, [])
@@ -20,6 +22,7 @@ export function BookDetails() {
       <button className="back-btn">
         <Link to="/books">← Back</Link>
       </button>
+
       <div className="book-header">
         <img className="book-thumbnail" src={book.thumbnail} alt={book.title} />
         <div className="book-info">
@@ -33,7 +36,7 @@ export function BookDetails() {
             Published: {book.publishedDate}
             <span>
               {' '}
-              -
+              -{' '}
               {new Date().getFullYear() - book.publishedDate > 10
                 ? 'Vintage'
                 : new Date().getFullYear() - book.publishedDate < 1
@@ -43,6 +46,7 @@ export function BookDetails() {
           </p>
         </div>
       </div>
+
       <p className="book-pagecount">
         📖 {book.pageCount} pages{'  -  '}
         <span className="book-pagecount-desc">
@@ -53,9 +57,11 @@ export function BookDetails() {
             : 'Light Reading'}
         </span>
       </p>
+
       <p className="book-language">
         🌎 Language: {book.language.toUpperCase()}
       </p>
+
       <p className="book-price">
         💰 Price:{' '}
         <span
@@ -75,6 +81,7 @@ export function BookDetails() {
           <span className="on-sale">🔥 On Sale!</span>
         )}
       </p>
+
       <LongTxt className="book-description" txt={book.description}></LongTxt>
     </section>
   )
