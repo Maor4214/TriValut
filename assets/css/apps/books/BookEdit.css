@@ -73,13 +73,3 @@
 .book-edit-form button:last-child:hover {
   background-color: #d0d0d0;
 }
-
-@media screen and (min-width: 768px) {
-  .book-edit-form {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .book-edit-form button {
-    grid-column: 1 / span 2;
-  }
-}

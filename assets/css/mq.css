@@ -1,0 +1,149 @@
+@media (max-width: 960px) {
+  .app-header {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: none;
+  }
+
+  .app-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .app-header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .app-header nav a {
+    margin-right: 0;
+  }
+
+  .home-page {
+    padding: 1rem;
+  }
+
+  .home-page h1 {
+    font-size: 1.8rem;
+  }
+
+  .home-page p {
+    font-size: 1rem;
+  }
+
+  .book-list {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .book-preview {
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .book-preview h2 {
+    font-size: 1rem;
+  }
+
+  .book-preview h3 {
+    font-size: 0.9rem;
+  }
+
+  .book-preview h4 {
+    font-size: 0.8rem;
+  }
+
+  .book-preview .button-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .book-preview button {
+    margin: 0;
+  }
+
+  .book-filter form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .sort-section {
+    margin-top: 0.5rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .book-details {
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .book-details .back-btn {
+    margin-bottom: 1rem;
+  }
+
+  .book-details .book-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .book-details .book-thumbnail {
+    margin-right: 0;
+    max-width: 200px;
+  }
+
+  .book-details .book-info h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .book-details .book-info h2 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .book-details .book-info p {
+    text-align: center;
+  }
+
+  .book-edit {
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .book-edit h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .book-edit form {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .book-edit button {
+    margin-top: 1rem;
+  }
+
+  .about-page {
+    padding: 1rem;
+  }
+
+  .about-page h1 {
+    font-size: 1.8rem;
+  }
+
+  .about-page p {
+    font-size: 1rem;
+  }
+}
