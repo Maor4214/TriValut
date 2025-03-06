@@ -184,7 +184,7 @@ export function MailInbox({ filter }) {
               contextLoadMails()
             }
 
-            updateUnreadCount() // עדכון מספר ההודעות שלא נקראו
+            updateUnreadCount()
             showSuccessMsg('Mail permanently deleted')
           })
         } else {
@@ -201,7 +201,7 @@ export function MailInbox({ filter }) {
               contextLoadMails()
             }
 
-            updateUnreadCount() // עדכון מספר ההודעות שלא נקראו
+            updateUnreadCount()
             showSuccessMsg('Mail moved to trash')
           })
         }

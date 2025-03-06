@@ -341,6 +341,304 @@ function _createmails() {
         'Tomera.almog9@TriValut.com'
       )
     )
+    mails.push(
+      _createmail(
+        'Annual Company Retreat Planning',
+        "Let's discuss ideas and locations for our upcoming team-building retreat. We want to create an unforgettable experience that strengthens our team bond.",
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        'events@TriValut.com',
+        'Tomera.almog9@TriValut.com'
+      )
+    )
+
+    mails.push(
+      _createmail(
+        'Product Market Research Results',
+        "Our latest market research reveals exciting opportunities for expansion. We've identified key trends that could drive our next innovation cycle.",
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        'research@TriValut.com',
+        'Tomera.almog9@TriValut.com'
+      )
+    )
+
+    mails.push(
+      _createmail(
+        'Open Source Contribution Strategy',
+        "We're exploring ways to increase our involvement in open-source projects. This could significantly boost our tech reputation and attract top talent.",
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        'dev-strategy@TriValut.com',
+        'Tomera.almog9@TriValut.com'
+      )
+    )
+
+    mails.push(
+      _createmail(
+        'Sustainability Initiative Kickoff',
+        'Our new green initiative aims to reduce our carbon footprint and implement eco-friendly practices across all company operations.',
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        'sustainability@TriValut.com',
+        'Tomera.almog9@TriValut.com'
+      )
+    )
+
+    mails.push(
+      _createmail(
+        'AI Ethics Workshop Invitation',
+        "Join our upcoming workshop on ethical AI development. We'll discuss responsible innovation and potential societal impacts of our technologies.",
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        'ethics@TriValut.com',
+        'Tomera.almog9@TriValut.com'
+      )
+    )
+    mails.push(
+      _createmail(
+        'Blockchain Innovation Seminar',
+        'Explore the cutting-edge developments in blockchain technology and its potential transformative impact on our industry.',
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        'tech-innovations@TriValut.com',
+        'Tomera.almog9@TriValut.com'
+      )
+    )
+
+    mails.push(
+      _createmail(
+        'Quantum Computing Research Insights',
+        'Deep dive into our latest quantum computing research and breakthrough potential for solving complex computational challenges.',
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        'quantum-research@TriValut.com',
+        'Tomera.almog9@TriValut.com'
+      )
+    )
+
+    mails.push(
+      _createmail(
+        'Future of Machine Learning Symposium',
+        'Join us for an in-depth exploration of machine learning trends and their implications for next-generation technological solutions.',
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        'ml-innovations@TriValut.com',
+        'Tomera.almog9@TriValut.com'
+      )
+    )
+
+    mails.push(
+      _createmail(
+        'Cybersecurity Emerging Technologies Forum',
+        'A comprehensive overview of emerging cybersecurity technologies and strategies to protect against evolving digital threats.',
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        'security-innovations@TriValut.com',
+        'Tomera.almog9@TriValut.com'
+      )
+    )
+    mails.push(
+      _createmail(
+        'Cloud Native Architecture Summit',
+        'Exploring next-generation cloud architectures and their impact on scalable enterprise solutions.',
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        'cloud-architecture@TriValut.com',
+        'Tomera.almog9@TriValut.com'
+      )
+    )
+
+    mails.push(
+      _createmail(
+        'Edge Computing Revolution',
+        'Insights into how edge computing is transforming data processing and real-time analytics across industries.',
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        'edge-tech@TriValut.com',
+        'Tomera.almog9@TriValut.com'
+      )
+    )
+
+    mails.push(
+      _createmail(
+        'Green Tech Innovation Conference',
+        'Comprehensive exploration of sustainable technology solutions and their potential to address global environmental challenges.',
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        'sustainability-tech@TriValut.com',
+        'Tomera.almog9@TriValut.com'
+      )
+    )
+
+    mails.push(
+      _createmail(
+        'Augmented Reality User Experience Design',
+        'Cutting-edge approaches to designing immersive and intuitive augmented reality experiences for enterprise applications.',
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        'ar-design@TriValut.com',
+        'Tomera.almog9@TriValut.com'
+      )
+    )
+
+    mails.push(
+      _createmail(
+        'Data Privacy and Ethical AI Roundtable',
+        'Critical discussions on balancing technological innovation with robust data protection and ethical considerations.',
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        'ethics-tech@TriValut.com',
+        'Tomera.almog9@TriValut.com'
+      )
+    )
+
+    mails.push(
+      _createmail(
+        'Internet of Things (IoT) Strategic Insights',
+        'Comprehensive analysis of IoT technologies and their transformative potential across various industry sectors.',
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        'iot-innovations@TriValut.com',
+        'Tomera.almog9@TriValut.com'
+      )
+    )
+
+    mails.push(
+      _createmail(
+        'New Learning Platform Launch',
+        "We're excited to introduce our new employee learning and development platform. Enhance your skills with personalized training modules.",
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        'learning@TriValut.com',
+        'Tomera.almog9@TriValut.com'
+      )
+    )
+
+    mails.push(
+      _createmail(
+        'Innovative Tech Challenge',
+        "Calling all innovators! We're launching an internal tech challenge to spark creativity and solve real-world problems.",
+        true,
+        true,
+        false,
+        false,
+        false,
+        true,
+        'innovation@TriValut.com',
+        'Tomera.almog9@TriValut.com'
+      )
+    )
+
+    mails.push(
+      _createmail(
+        'Customer Success Stories',
+        "Check out how our latest product features have transformed our clients' businesses. Real impact, real results!",
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        'marketing@TriValut.com',
+        'Tomera.almog9@TriValut.com'
+      )
+    )
+
+    mails.push(
+      _createmail(
+        'Global Expansion Update',
+        "Exciting news! We're preparing to launch our services in three new international markets next quarter.",
+        true,
+        false,
+        true,
+        false,
+        false,
+        true,
+        'global-strategy@TriValut.com',
+        'Tomera.almog9@TriValut.com'
+      )
+    )
+
+    mails.push(
+      _createmail(
+        'Diversity and Inclusion Initiatives',
+        'Our commitment to creating an inclusive workplace continues to be a top priority. Learn about our latest D&I programs and how you can get involved.',
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        'hr@TriValut.com',
+        'Tomera.almog9@TriValut.com'
+      )
+    )
+
     mails.forEach((mail) => {
       if (mail.from === 'Tomera.almog9@TriValut.com' && !mail.isDraft) {
         mail.sentAt =

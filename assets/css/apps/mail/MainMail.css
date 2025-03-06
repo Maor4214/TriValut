@@ -4,8 +4,9 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
-  height: 100vh;
+  height: 80vh;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .mail-item {

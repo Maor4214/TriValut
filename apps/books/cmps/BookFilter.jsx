@@ -9,9 +9,16 @@ export function BookFilter({ filterBy, onSetFilterBy }) {
   }, [filterByToEdit, sortBy])
 
   function onHandleChange(ev) {
-    let { value, type, name: field } = ev.target
-    if (type === 'number') value = +value
-    setfilterByToEdit((prevFilterBy) => ({ ...prevFilterBy, [field]: value }))
+    let { value, name: field } = ev.target
+
+    if (field === 'listPrice') {
+      setfilterByToEdit((prevFilterBy) => ({
+        ...prevFilterBy,
+        listPrice: { ...prevFilterBy.listPrice, amount: +value },
+      }))
+    } else {
+      setfilterByToEdit((prevFilterBy) => ({ ...prevFilterBy, [field]: value }))
+    }
   }
 
   function onSortChange(ev) {
@@ -41,13 +48,11 @@ export function BookFilter({ filterBy, onSetFilterBy }) {
           <label htmlFor="listPrice">Price:</label>
           <input
             name="listPrice"
-            value={filterByToEdit.listPrice || ''}
+            value={filterByToEdit.listPrice.amount || ''}
             onChange={onHandleChange}
             type="number"
             id="listPrice"
           />
-
-          <button>Submit</button>
         </div>
 
         <div className="spacer"></div>

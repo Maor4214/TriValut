@@ -47,17 +47,35 @@ function query(filterBy = {}) {
 
     if (filterBy.title) {
       const regExp = new RegExp(filterBy.title, 'i')
-      console.log('books before filter:', books)
       books = books.filter((book) => regExp.test(book.title))
-      console.log('books after filter:', books)
     }
-    if (filterBy.listPrice) {
-      books = books.filter((book) => book.listPrice >= filterBy.listPrice)
+
+    if (filterBy.listPrice.amount) {
+      books = books.filter(
+        (book) => book.listPrice.amount >= filterBy.listPrice.amount
+      )
     }
+
+    if (filterBy.sortBy) {
+      switch (filterBy.sortBy) {
+        case 'title':
+          books.sort((a, b) => a.title.localeCompare(b.title))
+          break
+        case 'titleDesc':
+          books.sort((a, b) => b.title.localeCompare(a.title))
+          break
+        case 'priceLow':
+          books.sort((a, b) => a.listPrice.amount - b.listPrice.amount)
+          break
+        case 'priceHigh':
+          books.sort((a, b) => b.listPrice.amount - a.listPrice.amount)
+          break
+      }
+    }
+
     return Promise.resolve(books)
   })
 }
-
 function addBook() {}
 
 function getBook(bookId) {
@@ -480,7 +498,10 @@ function _createBook(id, title, listPrice) {
 }
 
 function getDefaultFilter() {
-  return { title: '', listPrice: '' }
+  return {
+    title: '',
+    listPrice: { amount: '' },
+  }
 }
 
 function getEmptyBook() {
