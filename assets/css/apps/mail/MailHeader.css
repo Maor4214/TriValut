@@ -152,3 +152,15 @@
 .unread-count:hover {
   background-color: #f2f2f2;
 }
+
+.mail-utils-btns {
+  display: flex;
+  gap: 20px;
+  padding-inline-end: 40px;
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+  }
+}

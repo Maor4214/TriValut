@@ -3,12 +3,14 @@ import { MailHeader } from '../cmps/MailHeader.jsx'
 import { MailSidebar } from '../cmps/MailSidebar.jsx'
 import { MailCompose } from '../cmps/MailCompose.jsx'
 import { MailContext } from '../cmps/MailContext.jsx'
+
 const { useState, useEffect } = React
 const { Outlet } = ReactRouterDOM
 
 export function MailIndex() {
   const [isCompose, setIsCompose] = useState(false)
   const [mails, setMails] = useState([])
+  const [account, setAccount] = useState({})
   const [unreadCount, setUnreadCount] = useState(0)
   const [isSideBarOpen, setIsSideBarOpen] = useState(false)
   const [filterBy, setFilterBy] = useState({
@@ -20,23 +22,36 @@ export function MailIndex() {
   })
 
   useEffect(() => {
-    changeMails()
+    getMails()
+    getAccount()
+    updateUnreadCount()
   }, [filterBy])
 
   function toggleSideBar() {
     setIsSideBarOpen((prevIsOpen) => !prevIsOpen)
   }
 
-  function changeMails() {
+  function getMails() {
     mailService.query(filterBy).then((mails) => {
       setMails(mails)
-      setUnreadCount(mails.filter((mail) => !mail.isRead).length)
     })
+  }
+
+  function getAccount() {
+    const account = mailService.getAccount()
+    setAccount(account)
   }
 
   function updateUnreadCount() {
     mailService.query().then((mails) => {
-      setUnreadCount(mails.filter((mail) => !mail.isRead).length)
+      const count = mails.filter((mail) => !mail.isRead).length
+      setUnreadCount(count)
+    })
+  }
+
+  function loadMails() {
+    mailService.query(filterBy).then((mails) => {
+      setMails(mails)
     })
   }
 
@@ -58,12 +73,17 @@ export function MailIndex() {
     setFilter,
     filterBy,
     setMails,
+    loadMails,
   }
 
   return (
     <MailContext.Provider value={contextValue}>
       <section className="mail-container">
-        <MailHeader toggleSideBar={toggleSideBar} unreadCount={unreadCount} />
+        <MailHeader
+          toggleSideBar={toggleSideBar}
+          unreadCount={unreadCount}
+          account={account}
+        />
         <section className="main-layout">
           <MailSidebar
             isSideBarOpen={isSideBarOpen}
