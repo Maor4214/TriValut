@@ -1,5 +1,7 @@
 import { mailService } from '../services/mail.service.js'
 import { MailContext } from '../cmps/MailContext.jsx'
+import { noteService } from '../../note/services/note.service.js'
+import { showSuccessMsg } from '../../../services/event-bus.service.js'
 
 const { useEffect, useState, useContext } = React
 const { useSearchParams, useNavigate } = ReactRouterDOM
@@ -56,7 +58,7 @@ const markImportent = (
   </svg>
 )
 
-const markAsRead = (
+const unMarkAsRead = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     height="24px"
@@ -68,7 +70,7 @@ const markAsRead = (
   </svg>
 )
 
-const unMarkAsRead = (
+const markAsRead = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     height="24px"
@@ -145,6 +147,23 @@ export function MailInbox({ filter }) {
     })
   }
 
+  function onSaveAsNote(id) {
+    mailService.get(id).then((mail) => {
+      const newNote = {
+        createdAt: Date.now(),
+        info: { txt: mail.body, title: mail.subject },
+        isPinned: false,
+        style: { backgroundColor: '#fff' },
+        todos: [],
+        type: 'noteTxt',
+      }
+
+      noteService.save(newNote).then(() => {
+        showSuccessMsg('Mail has been saved as note successfully')
+      })
+    })
+  }
+
   if (!mails) return 'Loading...'
   return (
     <div className="main-mail-layout">
@@ -157,6 +176,7 @@ export function MailInbox({ filter }) {
           >
             <section className="mail-shortcut">
               <div
+                title={mail.isStarred ? 'Starred' : 'Not starred'}
                 onClick={(ev) => {
                   ev.stopPropagation()
                   toggleStarredStatus(mail, 'Starred')
@@ -182,9 +202,10 @@ export function MailInbox({ filter }) {
 
             <section className="mail-actions">
               <div
+                title="Save as note"
                 onClick={(ev) => {
                   ev.stopPropagation()
-                  // Function to move to archive
+                  onSaveAsNote(mail.id)
                 }}
               >
                 <svg
@@ -194,12 +215,13 @@ export function MailInbox({ filter }) {
                   width="24px"
                   fill="#787b7b"
                 >
-                  <path d="m480-240 160-160-56-56-64 64v-168h-80v168l-64-64-56 56 160 160ZM200-640v440h560v-440H200Zm0 520q-33 0-56.5-23.5T120-200v-499q0-14 4.5-27t13.5-24l50-61q11-14 27.5-21.5T250-840h460q18 0 34.5 7.5T772-811l50 61q9 11 13.5 24t4.5 27v499q0 33-23.5 56.5T760-120H200Zm16-600h528l-34-40H250l-34 40Zm264 300Z" />
+                  <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h480l160 160v212q-19-8-39.5-10.5t-40.5.5v-169L647-760H200v560h240v80H200Zm0-640v560-560ZM520-40v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q8 9 12.5 20t4.5 22q0 11-4 22.5T863-260L643-40H520Zm300-263-37-37 37 37ZM580-100h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19ZM240-560h360v-160H240v160Zm240 320h4l116-115v-5q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Z" />
                 </svg>
               </div>
 
               <div
                 onClick={(ev) => {
+                  title = 'Delete'
                   ev.stopPropagation()
                   // Function to move to trash
                 }}
@@ -215,6 +237,7 @@ export function MailInbox({ filter }) {
                 </svg>
               </div>
               <div
+                title={mail.isRead ? 'Mark as unread' : 'Mark as read'}
                 onClick={(ev) => {
                   ev.stopPropagation()
                   toggleStarredStatus(mail, 'Read')
